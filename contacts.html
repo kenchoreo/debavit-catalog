@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Debavit</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159',
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-8">
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-black transition">Главная</a>
+            <a href="catalog.html" class="hover:text-black transition">Каталог</a>
+            <a href="about.html" class="hover:text-black transition">О нас</a>
+            <a href="contacts.html" class="text-black transition">Контакты</a> </div>
+        <div class="flex items-center space-x-6">
+            <a href="catalog.html" class="bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">В каталог</a>
+        </div>
+    </nav>
+
+    <main class="py-16 md:py-24 flex-grow flex items-center">
+        <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row gap-16 lg:gap-32">
+            
+            <div class="md:w-1/2">
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-[90px] font-bold uppercase text-brand-dark leading-[0.85] tracking-tighter mb-8">
+                    Всегда <br>
+                    <span class="text-[#52664C]">на связи</span>
+                </h1>
+                <p class="text-gray-600 text-lg md:text-xl font-light max-w-md mb-10">
+                    У вас остались вопросы по составу, подбору нутрицевтиков или оформлению заказа? Напишите нам, и мы с радостью проконсультируем вас.
+                </p>
+            </div>
+
+            <div class="md:w-1/2 flex flex-col justify-center space-y-8">
+                
+                <a href="https://wa.me/77777777777" target="_blank" class="block bg-[#5d7159] p-8 hover:bg-[#4a5a47] transition-colors rounded-sm group">
+                    <p class="text-white/80 text-sm uppercase tracking-widest mb-2 font-medium">Консультация и заказ</p>
+                    <div class="flex items-center justify-between">
+                        <p class="text-white font-heading text-3xl md:text-4xl uppercase tracking-wider">WhatsApp</p>
+                        <svg class="w-8 h-8 text-white transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </a>
+
+                <a href="tel:+77777777777" class="block border border-gray-200 p-8 hover:border-black transition-colors rounded-sm group">
+                    <p class="text-gray-400 text-sm uppercase tracking-widest mb-2 font-medium">Телефон</p>
+                    <p class="text-brand-dark font-heading text-3xl md:text-4xl tracking-wider">+7 777 777 7777</p>
+                </a>
+
+                <a href="https://instagram.com/debavit_kz" target="_blank" class="block border border-gray-200 p-8 hover:border-black transition-colors rounded-sm group">
+                    <p class="text-gray-400 text-sm uppercase tracking-widest mb-2 font-medium">Мы в соцсетях</p>
+                    <p class="text-brand-dark font-heading text-3xl md:text-4xl tracking-wider">@debavit_kz</p>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
+    <section class="py-16 bg-white overflow-hidden border-t border-gray-100">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
+            <a href="https://instagram.com/debavit_kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@Debavit_kz</a>
+        </div>
+        <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2 hide-scrollbar">
+            <img src="./assets/img/insta-1.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-2.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-3.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-4.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-5.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-6.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-7.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-8.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
+        <div class="container mx-auto px-4">
+            <p>2026 Debavit.kz</p>
+        </div>
+    </footer>
+
+</body>
+</html>

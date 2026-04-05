@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар — Debavit</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159',
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-8">
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-black transition">Главная</a>
+            <a href="catalog.html" class="text-black transition">Каталог</a>
+            <a href="about.html" class="hover:text-black transition">О нас</a>
+            <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+        </div>
+        <div class="flex items-center space-x-6">
+            <a href="tel:+77777777777" class="text-sm font-semibold hidden md:block">+7 777 777 7777</a>
+        </div>
+    </nav>
+
+    <main class="py-10 md:py-16 flex-grow">
+        <div class="container mx-auto max-w-7xl px-4">
+            
+            <div class="mb-8 text-xs font-medium text-gray-400 tracking-wider uppercase">
+                <a href="index.html" class="hover:text-black transition">Главная</a> 
+                <span class="mx-2">/</span> 
+                <a href="catalog.html" class="hover:text-black transition">Каталог</a> 
+                <span class="mx-2">/</span> 
+                <span id="breadcrumb-name" class="text-black">Загрузка...</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-10 lg:gap-16">
+                
+                <div class="md:w-1/2">
+                    <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                        <img id="main-image" src="./assets/img/product-1.jpg" alt="Фото товара" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    
+                    <div id="thumbnails-container" class="grid grid-cols-4 gap-4">
+                        <div class="aspect-square bg-[#1a2a1d] rounded-sm cursor-pointer border border-black overflow-hidden">
+                            <img src="./assets/img/product-1.jpg" class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <div class="aspect-square bg-[#1a2a1d] rounded-sm cursor-pointer opacity-60 hover:opacity-100 transition overflow-hidden">
+                            <img src="./assets/img/product-1.jpg" class="w-full h-full object-cover opacity-90">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 flex flex-col">
+                    
+                    <h1 id="product-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-brand-dark leading-none tracking-tighter mb-8">
+                        Загрузка названия...
+                    </h1>
+
+                    <div class="mb-10">
+                        <a id="order-btn" href="#" target="_blank" class="w-full md:w-auto inline-flex bg-[#5d7159] text-white px-10 py-5 text-sm font-bold uppercase tracking-widest justify-center items-center hover:opacity-90 transition-all rounded-sm shadow-xl">
+                            <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.405.314.159.386.541 1.32.588 1.416.048.096.079.208.014.332-.065.125-.111.192-.222.327-.11.135-.233.303-.332.405-.11.114-.227.238-.098.46.129.223.571.942 1.226 1.525.844.75 1.557.984 1.774 1.073.217.09.346.076.476-.072.129-.148.556-.647.705-.868.149-.222.299-.187.505-.111s1.303.614 1.527.726c.224.111.374.166.429.259.055.093.055.539-.089.944z"/>
+                            </svg>
+                            Заказать через WhatsApp
+                        </a>
+                        <p class="text-xs text-gray-400 mt-3">* Менеджер проконсультирует вас по наличию и доставке</p>
+                    </div>
+
+                    <div class="border-t border-gray-200">
+                        <div class="py-6 border-b border-gray-200">
+                            <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4">Описание</h3>
+                            <div id="product-description" class="text-gray-600 text-sm md:text-base font-light leading-relaxed">
+                                Загрузка описания...
+                            </div>
+                        </div>
+
+                        <div class="py-6 border-b border-gray-200">
+                            <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4">Состав</h3>
+                            <div id="product-composition" class="prose prose-sm md:prose-base text-gray-600 font-light prose-ul:pl-0">
+                                Загрузка состава...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
+        <div class="container mx-auto px-4">
+            <p>2026 Debavit.kz</p>
+        </div>
+    </footer>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>

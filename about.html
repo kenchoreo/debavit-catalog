@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — Debavit</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159',
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-8">
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-black transition">Главная</a>
+            <a href="catalog.html" class="hover:text-black transition">Каталог</a>
+            <a href="about.html" class="text-black transition">О нас</a> <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+        </div>
+        <div class="flex items-center space-x-6">
+            <a href="tel:+77777777777" class="text-sm font-semibold hidden md:block">+7 777 777 7777</a>
+            <a href="https://wa.me/77777777777" class="bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
+        </div>
+    </nav>
+
+    <header class="py-16 md:py-24">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="max-w-3xl">
+                <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-4 font-medium text-gray-400">О бренде</p>
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-[80px] font-bold uppercase text-brand-dark leading-[0.9] tracking-tighter mb-8">
+                    Мы создаем <br>
+                    <span class="text-[#52664C]">чистую энергию</span> <br>
+                    для вашей жизни
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="pb-20 md:pb-32 flex-grow">
+        <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row gap-12 md:gap-20">
+            
+            <div class="md:w-1/2">
+                <div class="aspect-square md:aspect-[4/5] bg-gray-100 overflow-hidden rounded-sm">
+                    <img src="./assets/img/product-1.jpg" alt="Debavit Production" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="md:w-1/2 flex flex-col justify-center">
+                <h2 class="font-heading text-3xl md:text-4xl uppercase tracking-tighter mb-6 text-brand-dark">Наша философия</h2>
+                <div class="text-gray-600 font-light leading-relaxed space-y-6 md:text-lg">
+                    <p>
+                        В основе Debavit лежит простой принцип: человеческий организм способен на невероятные вещи, если дать ему правильный строительный материал. Мы не продаем «волшебные таблетки», мы предлагаем научно обоснованный подход к восполнению дефицитов.
+                    </p>
+                    <p>
+                        Каждый наш продукт — это результат строгих исследований. Мы используем только биодоступные формы витаминов и минералов, которые усваиваются клетками на 100%, не перегружая пищеварительную систему.
+                    </p>
+                    <p>
+                        Мы верим, что забота о себе не должна быть сложной. Это ежедневный ритуал, который становится вашим надежным фундаментом для карьерных достижений, спорта и счастливой жизни.
+                    </p>
+                </div>
+                
+                <div class="mt-12 pt-12 border-t border-gray-200 grid grid-cols-2 gap-8">
+                    <div>
+                        <p class="font-heading text-4xl text-brand-dark mb-2">100%</p>
+                        <p class="text-sm text-gray-500 uppercase tracking-widest">Чистые составы</p>
+                    </div>
+                    <div>
+                        <p class="font-heading text-4xl text-brand-dark mb-2">ISO</p>
+                        <p class="text-sm text-gray-500 uppercase tracking-widest">Стандарт качества</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="py-16 bg-white overflow-hidden border-t border-gray-100">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
+            <a href="https://instagram.com/debavit_kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@Debavit_kz</a>
+        </div>
+        <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2 hide-scrollbar">
+            <img src="./assets/img/insta-1.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-2.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-3.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-4.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-5.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-6.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-7.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-8.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
+        <div class="container mx-auto px-4">
+            <p>2026 Debavit.kz</p>
+        </div>
+    </footer>
+
+</body>
+</html>

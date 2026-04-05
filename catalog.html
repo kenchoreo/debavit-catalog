@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — Debavit</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159',
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-8">
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-black transition">Главная</a>
+            <a href="catalog.html" class="text-black transition">Каталог</a>
+            <a href="about.html" class="hover:text-black transition">О нас</a>
+            <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+        </div>
+        <div class="flex items-center space-x-6">
+            <a href="tel:+77777777777" class="text-sm font-semibold hidden md:block">+7 777 777 7777</a>
+            <a href="https://wa.me/77777777777" class="bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
+        </div>
+    </nav>
+
+    <header class="bg-[#5d7159] py-16 md:py-20 mt-4">
+        <div class="container mx-auto px-4 max-w-7xl text-center">
+            <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase text-white leading-none tracking-tighter">
+                Каталог продукции
+            </h1>
+            <p class="text-white opacity-80 mt-4 max-w-2xl mx-auto font-light">
+                Выберите идеальное решение для вашего здоровья из нашей линейки премиальных нутрицевтиков.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-24 flex-grow">
+        <div class="container mx-auto max-w-7xl px-4">
+            
+            <div class="flex space-x-4 mb-10 overflow-x-auto pb-4 md:pb-0 hide-scrollbar">
+                <button class="px-6 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-sm whitespace-nowrap">Все товары</button>
+                <button class="px-6 py-2 border border-gray-300 text-gray-600 text-xs font-bold uppercase tracking-wider hover:border-black hover:text-black transition-all rounded-sm whitespace-nowrap">Витамины</button>
+                <button class="px-6 py-2 border border-gray-300 text-gray-600 text-xs font-bold uppercase tracking-wider hover:border-black hover:text-black transition-all rounded-sm whitespace-nowrap">Минералы</button>
+            </div>
+
+            <div id="products-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8">
+                
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                        <img src="./assets/img/product-1.jpg" alt="Лицетин" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                    </div>
+                    <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center">
+                        Лицетин & Силимарин <br class="hidden md:block"> 1100 мг.
+                    </h3>
+                    <a href="product.html" class="inline-block w-full border border-black text-black px-6 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all rounded-sm text-center">
+                        Подробнее
+                    </a>
+                </div>
+                </div>
+        </div>
+    </main>
+
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
+        <div class="container mx-auto px-4">
+            <p>2026 Debavit.kz</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Скрываем скроллбар для фильтров на мобилке */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>

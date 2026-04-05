@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: ТВОЙ_ЛОГИН_GITHUB/debavit-catalog # Заменишь на свой, когда создашь репозиторий
+  branch: main
+  base_url: https://api.netlify.com
+
+media_folder: "assets/uploads"
+public_folder: "./assets/uploads"
+
+collections:
+  - name: "catalog"
+    label: "База товаров"
+    files:
+      - label: "Все товары"
+        name: "products"
+        file: "assets/data/products.json" # Все товары будут храниться в этом файле
+        fields:
+          - label: "Список товаров"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "ID товара (на англ, без пробелов, например: item-1)", name: "id", widget: "string"}
+              - {label: "Название товара", name: "title", widget: "string"}
+              - {label: "Фото", name: "image", widget: "image"}
+              - {label: "Описание", name: "description", widget: "text"}
+              - {label: "Состав (можно использовать переносы строк)", name: "composition", widget: "text"}

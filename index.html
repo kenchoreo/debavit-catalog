@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debavit — Фундамент вашего успеха</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159', /* Замени на точный HEX из Figma */
+                        'brand-brown': '#966d33', /* Замени на точный HEX из Figma */
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white">
+
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-8">
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-black transition">Главная</a>
+            <a href="catalog.html" class="hover:text-black transition">Каталог</a>
+            <a href="about.html" class="hover:text-black transition">О нас</a>
+            <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+        </div>
+        <div class="flex items-center space-x-6">
+            <a href="tel:+77777777777" class="text-sm font-semibold hidden md:block">+7 777 777 7777</a>
+            <a href="#catalog" class="bg-brand-dark text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition">Заказать</a>
+        </div>
+    </nav>
+
+    <header class="relative w-full min-h-[500px] md:min-h-[850px] flex items-start overflow-hidden bg-white pt-[72px] pb-16 md:pb-0">
+    
+    <div class="hidden md:block absolute inset-0 z-0 pointer-events-none bg-[url('./assets/img/hero-bottles.png')] bg-no-repeat bg-[right_center] bg-contain md:bg-[length:auto_95%] lg:bg-contain"></div>
+
+    <div class="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div class="w-full">
+            <h1 class="font-heading font-bold leading-[0.85] uppercase mb-8 tracking-tighter">
+                <span class="text-[#52664C] block text-4xl md:text-7xl mb-2">
+                    Здоровье и энергия
+                </span>
+                <span class="text-brand-dark block text-4xl md:text-7xl lg:text-[80px] xl:text-[72px] md:whitespace-nowrap">
+                    фундамент вашего успеха
+                </span>
+            </h1>
+            
+            <p class="text-gray-600 mb-10 max-w-lg text-base md:text-lg leading-relaxed font-light">
+                Раскройте потенциал своего организма на 100% с премиальными нутрицевтиками Debavit. Энергия, ясный ум и внутреннее сияние для ваших лучших достижений.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="catalog.html" class="bg-black text-white px-10 py-4 text-sm font-bold uppercase tracking-widest flex items-center justify-center hover:bg-gray-900 transition-all rounded-sm">
+                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    Перейти в каталог
+                </a>
+                <a href="https://wa.me/77777777777" class="bg-[#5d7159] text-white px-10 py-4 text-sm font-bold uppercase tracking-widest flex items-center justify-center hover:opacity-90 transition-all rounded-sm">
+                    <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.405.314.159.386.541 1.32.588 1.416.048.096.079.208.014.332-.065.125-.111.192-.222.327-.11.135-.233.303-.332.405-.11.114-.227.238-.098.46.129.223.571.942 1.226 1.525.844.75 1.557.984 1.774 1.073.217.09.346.076.476-.072.129-.148.556-.647.705-.868.149-.222.299-.187.505-.111s1.303.614 1.527.726c.224.111.374.166.429.259.055.093.055.539-.089.944z"/>
+                    </svg>
+                    Консультация
+                </a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <section class="bg-[#5d7159] py-16 md:py-24">
+    <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row items-center">
+        
+        <div class="md:w-1/2 mb-10 md:mb-0">
+            <img src="./assets/img/promo-set.png" alt="Набор Базовый минимум" class="w-full max-w-lg mx-auto drop-shadow-2xl">
+        </div>
+        
+        <div class="md:w-1/2 text-white md:pl-16">
+            <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-2 font-medium opacity-90">Набор #1</p>
+            
+            <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase mb-4 leading-none tracking-tighter">
+                Базовый минимум
+            </h2>
+            
+            <p class="text-sm md:text-base mb-6 font-medium tracking-wide">
+                Лицетин / Магнезиум / Омега-3 / Пробиотик
+            </p>
+            
+            <p class="mb-10 max-w-md text-sm md:text-base leading-relaxed opacity-80 font-light">
+                Это ваш ежедневный ритуал заботы о себе, который поможет легко достигать целей и наслаждаться каждым моментом.
+            </p>
+            
+            <a href="https://wa.me/77777777777" class="inline-flex bg-black text-white px-10 py-4 text-sm font-bold uppercase tracking-widest items-center hover:bg-gray-900 transition-all rounded-sm shadow-lg">
+                <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                Заказать сейчас
+            </a>
+        </div>
+    </div>
+</section>
+
+    <section class="py-16 md:py-24 bg-white" id="popular">
+    <div class="container mx-auto max-w-7xl px-4">
+        
+        <div class="flex justify-between items-end mb-10 md:mb-12">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase text-brand-dark leading-none tracking-tighter">
+                Популярные товары
+            </h2>
+            <a href="catalog.html" class="hidden md:block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-900 transition-all rounded-sm">
+                Смотреть все
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8">
+            
+            <div class="group cursor-pointer">
+                <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                    <img src="./assets/img/product-1.jpg" alt="Лицетин" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                </div>
+                
+                <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center">
+                    Лицетин & Силимарин <br class="hidden md:block"> 1100 мг.
+                </h3>
+                
+                <a href="product.html" class="inline-block w-full md:w-auto border border-black text-black px-6 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all rounded-sm text-center">
+                    Подробнее
+                </a>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                    <img src="./assets/img/product-1.jpg" alt="Товар" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                </div>
+                <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center">Лицетин & Силимарин 1100 мг.</h3>
+                <a href="product.html" class="inline-block w-full md:w-auto border border-black text-black px-6 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all rounded-sm text-center">
+                    Подробнее
+                </a>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                    <img src="./assets/img/product-1.jpg" alt="Товар" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                </div>
+                <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center">Лицетин & Силимарин 1100 мг.</h3>
+                <a href="product.html" class="inline-block w-full md:w-auto border border-black text-black px-6 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all rounded-sm text-center">
+                    Подробнее
+                </a>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                    <img src="./assets/img/product-1.jpg" alt="Товар" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                </div>
+                <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center">Лицетин & Силимарин 1100 мг.</h3>
+                <a href="product.html" class="inline-block w-full md:w-auto border border-black text-black px-6 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all rounded-sm text-center">
+                    Подробнее
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mt-12 md:hidden">
+            <a href="catalog.html" class="w-full block bg-black text-white py-4 text-center text-sm font-bold uppercase tracking-[0.2em] rounded-sm shadow-md">
+                Смотреть все
+            </a>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="bg-brand-brown py-20 text-center px-4">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold uppercase text-white mb-4">Инвестируйте в свое лучшее самочувствие</h2>
+        <p class="text-white opacity-90 max-w-2xl mx-auto mb-8 text-lg">
+            Ваш успех начинается с заботы о себе<br>
+            Сделайте первый шаг к новому уровню жизни и энергии вместе с Debavit.
+        </p>
+        <a href="#catalog" class="inline-block bg-brand-dark text-white px-10 py-4 font-medium hover:bg-gray-800 transition">
+            Начать трансформацию
+        </a>
+    </section>
+
+    <section class="py-16 bg-white overflow-hidden">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
+            <a href="https://instagram.com/debavit_kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@Debavit_kz</a>
+        </div>
+        <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2">
+            <img src="./assets/img/insta-1.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-2.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-3.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-4.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-5.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-6.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-7.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-8.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400">
+        <div class="container mx-auto px-4">
+            <p>2026 Debavit.kz</p>
+        </div>
+    </footer>
+
+</body>
+</html>

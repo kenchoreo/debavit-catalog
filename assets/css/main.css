@@ -1,0 +1,13 @@
+/* Плавный скролл для якорей */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Скрываем полосу прокрутки в блоке Instagram, но оставляем возможность скроллить на мобилках */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+.overflow-x-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
