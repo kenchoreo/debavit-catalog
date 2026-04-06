@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ТВОЙ_ЛОГИН_GITHUB/debavit-catalog # Заменишь на свой, когда создашь репозиторий
+  repo: kenchoreo/debavit-catalog
   branch: main
   base_url: https://api.netlify.com
 
