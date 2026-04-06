@@ -2,7 +2,8 @@ backend:
   name: github
   repo: kenchoreo/debavit-catalog
   branch: main
-  base_url: https://api.netlify.com
+  base_url: https://debavit-login.kenny070796.workers.dev
+  auth_endpoint: auth
 
 media_folder: "assets/uploads"
 public_folder: "./assets/uploads"
