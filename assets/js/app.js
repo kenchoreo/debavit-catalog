@@ -75,3 +75,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 });
+
+// Логика мобильного меню
+const menuOpenBtn = document.getElementById('menu-open');
+const menuCloseBtn = document.getElementById('menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+const body = document.body;
+
+function toggleMenu() {
+    mobileMenu.classList.toggle('translate-x-full');
+    // Блокируем скролл страницы при открытом меню
+    body.classList.toggle('overflow-hidden');
+}
+
+if(menuOpenBtn && menuCloseBtn) {
+    menuOpenBtn.addEventListener('click', toggleMenu);
+    menuCloseBtn.addEventListener('click', toggleMenu);
+}
+
+// Закрываем меню при клике на ссылку (важно для одностраничных переходов)
+const menuLinks = mobileMenu.querySelectorAll('a');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+        body.classList.remove('overflow-hidden');
+    });
+});
