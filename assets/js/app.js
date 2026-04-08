@@ -144,3 +144,46 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.error("Ошибка загрузки рекомендаций:", err));
     }
 });
+
+// --- ЛОГИКА ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Проверяем, находимся ли мы на главной странице
+    const popularGrid = document.getElementById('popular-products-grid');
+    
+    if (popularGrid) {
+        fetch('./assets/data/products.json')
+            .then(res => res.json())
+            .then(data => {
+                const products = data.items || [];
+                
+                // Берем первые 4 товара для блока "Популярные"
+                const popularProducts = products.slice(0, 4);
+
+                popularGrid.innerHTML = ''; // Очищаем контейнер
+
+                popularProducts.forEach(item => {
+                    // Подготавливаем правильный путь к картинке
+                    const imgPath = item.image ? (item.image.startsWith('.') ? item.image : `./${item.image}`) : '';
+                    
+                    // Создаем кликабельную карточку-ссылку
+                    const card = document.createElement('a');
+                    card.href = `product.html?id=${item.id}`;
+                    card.className = "group block cursor-pointer flex flex-col h-full"; 
+                    
+                    card.innerHTML = `
+                        <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                            <img src="${imgPath}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        </div>
+                        <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center group-hover:text-brand-green transition-colors">
+                            ${item.title}
+                        </h3>
+                        <span class="inline-block w-full md:w-auto border border-black text-black px-6 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest group-hover:bg-black group-hover:text-white transition-all rounded-sm text-center mt-auto">
+                            Подробнее
+                        </span>
+                    `;
+                    popularGrid.appendChild(card);
+                });
+            })
+            .catch(err => console.error("Ошибка загрузки популярных товаров:", err));
+    }
+});
