@@ -83,6 +83,69 @@
       "composition": "Methylsulfonylmethane - 250 mg\nHyaluronic Acid - 150 mg\nHorsetail Extract - 50 mg\nGrape Seed Extract - 50 mg\nPine Bark Extract - 25 mg\nBeta Carotene (a natural blend of carotenoids from D. salina algae) - 10 mg\nL-Cysteine - 200 mg\nVitamin C (in the form of ascorbic acids) - 100 mg\nVitamin E (in the form of d-alpha-tocopheryl succinate acid) - 40 mg\nVitamin D3 - 600 IU\nVitamin B1 (Thiamine Hydrochloride) - 5 mg\nVitamin B2 (Riboflavin) - 6 mg\nVitamin B3 (Nicotinamide) - 60 mg\nVitamin B5 (Calcium Pantothenate) - 15 mg\nVitamin B6 (Pyridoxine Hydrochloride) - 6 mg\nBiotin - 150 mkg\nFolic Acid (Pteroylmonoglutamic Acid) - 400 mkg\nVitamin B12 (Methylcobalamin) - 9 mkg\nZinc (from Bisglycinate Chelate 49 mg) - 15 mg\nIron (from Bisglycinate Chelate 73 mg) - 20 mg\nCopper (Chelate) - 1 mg\nManganese (Sulphate) - 2 mg\nSelenium (Sodium Selenite) - 100 mkg\nIodine (Potassium Iodate) - 150 mkg\nChromium (from Picolinate 0,4 mg) - 50 mkg",
       "description": "Комплексная «формула красоты», созданная для глубокого восстановления и питания вашей внешности на клеточном уровне. Практическая польза заключается в активации естественного синтеза коллагена и кератина, что делает волосы густыми, ногти — прочными, а кожу — упругой. Тщательно подобранный баланс витаминов, минералов и антиоксидантов работает изнутри, устраняя причину ломкости и тусклого цвета лица. Активные компоненты улучшают микроциркуляцию в тканях, ускоряя доставку питательных веществ к волосяным фолликулам и глубоким слоям дермы. В результате вы получаете видимое преображение: здоровое сияние кожи, сильные ногти и естественный блеск волос.",
       "image": "assets/uploads/bez_7912_1_1x.webp"
+    },
+    {
+      "id": "0000013",
+      "title": "Kelp and Potassium Iodide & Selenium 90 capsules",
+      "composition": "Iodide (From Kelp) - 150 mcg\nIodide (Potassium Iodide) - 150 mcg\nSelenium (Organic form) - 100 mcg",
+      "description": "Мощный щит для вашей щитовидной железы и метаболизма. Практическая польза заключается в восстановлении гормонального баланса, приливе энергии и избавлении от отеков. Природный йод из бурых водорослей (Kelp) и йодид калия насыщают клетки необходимым топливом для работы эндокринной системы, а селен выступает в роли ключевого катализатора. Он помогает организму правильно усваивать йод и превращать гормоны щитовидной железы в их активную форму, защищая клетки от окисления. В результате вы получаете стабильный обмен веществ, контроль над весом и ясную голову без хронической усталости.",
+      "image": "assets/uploads/bez_7906_1.webp"
+    },
+    {
+      "id": "0000014",
+      "title": "Coenzyme Q10 & Cofactors 90 softgels",
+      "composition": "Coenzyme Q10 (Ubiquinone) - 100 mg\nVitamin C (from Calcium Ascorbate) - 100 mg\nVitamin E (D-alpha-tocopheryl acetate acid) - 10 mg",
+      "image": "assets/uploads/bez_7939_1.webp",
+      "description": "Мощный клеточный энергетик, необходимый для бесперебойной работы сердца и замедления процессов старения. Практическая польза заключается в повышении выносливости, укреплении сердечной мышцы и защите клеток от окислительного стресса. Коэнзим Q10 является «искрой», запускающей синтез энергии в митохондриях, а специально подобранные кофакторы значительно усиливают его усвояемость и антиоксидантный эффект. Благодаря масляной основе внутри мягких капсул, активное вещество мгновенно проникает в кровоток, обеспечивая клетки топливом. В результате вы чувствуете прилив жизненных сил, а ваша сердечно-сосудистая система получает надежную поддержку."
+    },
+    {
+      "id": "0000015",
+      "composition": "Calcium (from Citrate 1245 mg) - 300 mg\nVitamin K2 (MK-7) - 75 mcg",
+      "description": "Умная поддержка костной системы, которая гарантирует доставку минералов точно по назначению. Практическая польза заключается в укреплении скелета и зубов при одновременной защите чистоты ваших сосудов. Кальций выступает основным строительным элементом, а витамин K2 активирует специальные белки, которые «вколачивают» его в костную ткань, не позволяя оседать в артериях. Такой механизм предотвращает кальцификацию мягких тканей и поддерживает здоровье сердца. В результате вы получаете прочный фундамент организма и надежную профилактику возрастной хрупкости костей.",
+      "title": "Calcium & K2 90 tablets",
+      "image": "assets/uploads/bez_7911_1.webp"
+    },
+    {
+      "id": "0000016",
+      "title": "Gentle Iron & Cofactors 90 capsules",
+      "composition": "Iron (from Bisglycinate Сhelate 146 mg) - 40 mg\nVitamin B12 (Methylcobalamin) - 5 mcg\nVitamin C (from Calcium Ascorbate) - 100 mg\nCopper (Sulfate) - 1 mg",
+      "description": "Инновационное решение для борьбы с анемией и хронической усталостью без побочных эффектов со стороны желудка. Практическая польза заключается в быстром подъеме уровня гемоглобина, возвращении здорового румянца и восстановлении физической выносливости. Железо в деликатной хелатной форме усваивается максимально полно, не вызывая тошноты или дискомфорта, а кофакторы (витамины группы B и C) выступают катализаторами его встраивания в эритроциты. Этот комплекс оптимизирует транспорт кислорода к каждой клетке вашего тела, избавляя от головокружений и слабости. В результате вы получаете стабильный прилив энергии, крепкий иммунитет и отличное самочувствие каждый день.",
+      "image": "assets/uploads/bez_7925_1.webp"
+    },
+    {
+      "id": "0000017",
+      "title": "Chromium + Niacin 90 capsules",
+      "composition": "Chromium (Picolinate 2 mg) - 250 mcg\nNiacin (Vitamin B3 in form of Nicotinamide) - 25 mg",
+      "description": "Идеальный инструмент для контроля аппетита и ускорения углеводного обмена. Практическая польза заключается в избавлении от «сахарной зависимости» и стабилизации уровня энергии без резких спадов в течение дня. Хром повышает чувствительность рецепторов к инсулину, помогая клеткам эффективнее усваивать глюкозу, а ниацин (витамин B3) выступает мощным кофактором, усиливающим это действие и улучшающим микроциркуляцию. Такой тандем нормализует липидный профиль и помогает организму быстрее преобразовывать съеденную пищу в чистую энергию, а не в жировые отложения. В результате вы легче придерживаетесь правильного питания, избавляетесь от тяги к сладкому и поддерживаете здоровый вес.",
+      "image": "assets/uploads/bez_7934_1.webp"
+    },
+    {
+      "id": "0000018",
+      "title": "MultiVitamins for Men 90 tablets",
+      "composition": "Vitamin A - 1125 mcg\nVitamin C (from Calcium Ascorbate) - 100 mg\nVitamin D3 - 15 mcg\nVitamin E - 10 mg\nVitamin K1 - 40 mcg\nVitamin B1 - 5 mg\nVitamin B2 - 6 mg\nVitamin B3 - 25 mg\nVitamin B6 (Pyridoxine Hydrochloride) - 6 mg\nFolic Acid (Pteroylmonoglutamic Acid) - 200 mcg\nVitamin B12 (Methylcobalamin) - 9 mcg\nAminoblend (L-Carnitine, L-Taurine, L-Glutamine, L-Methionine) - 51 mg\nMemoblend (Choline, Inositol, Silicon) - 12 mg\nAlpha-Lipoic Acid - 12.5 mg\nLutein - 475 mcg\nAstaxanthin - 25 mcg\nBiotin - 150 mcg\nPantothenic Acid - 15 mg\nCalcium (from Citrate 207 mg) - 50 mg\nIodine (Potassium Iodide) - 75 mcg\nMagnesium (from Citrate 310 mg) - 50 mg\nZinc (from Bisglycinate Chelate 62,5 mg) - 12.5 mg\nSelenium (Organic) - 100 mcg\nCopper (Sulphate) - 1 mg\nManganese (Sulphate) - 1 mg\nChromium (Picolinate 0,48 mg) - 60 mcg\nMolybdenum - 37.5 mcg\nFruit & Vegetables Powerbland (Orange peel powder, acai fruit powder, cranberry fruit powder, blueberry fruit powder, pomegranate fruit powder, broccoli powder, spinach leaves powder, elderberry fruit powder, grape skin powder, tomato powder) - 40,5 mg\nBeauty Blend (Green Tea Extract, Alpha-Lipoic Acid, grape skin extract) - 47,5 mg\nZeaxanthin - 95 mcg",
+      "description": "Специально разработанный мужской комплекс, направленный на поддержание высокого уровня тестостерона, энергии и мышечного тонуса. Практическая польза заключается в усилении физической выносливости, защите сердца и быстрой адаптации организма к стрессовым нагрузкам. Формула содержит оптимальные дозировки цинка, магния и витаминов группы B, которые критически важны для мужского метаболизма и синтеза белка. Активные компоненты работают в синергии, укрепляя иммунный барьер и поддерживая здоровье репродуктивной системы на клеточном уровне. В результате вы получаете стабильную продуктивность в течение дня, быстрое восстановление после тренировок и надежный фундамент для активного долголетия.",
+      "image": "assets/uploads/bez_7920_1.webp"
+    },
+    {
+      "id": "0000019",
+      "title": "Multivitamins for Women 90 tablets",
+      "description": "Сбалансированный комплекс, созданный с учетом уникальных потребностей женского организма для поддержания красоты, энергии и гормонального баланса. Практическая польза заключается в укреплении иммунитета, улучшении состояния кожи, волос и ногтей, а также в мягкой поддержке нервной системы при стрессах. Формула обогащена железом, фолиевой кислотой и антиоксидантами, которые критически важны для женского здоровья и правильного обмена веществ. Активные компоненты работают в синергии, помогая организму справляться с ежедневными нагрузками и сохранять жизненный тонус в любой период цикла. В результате вы получаете не только внешнее сияние, но и внутреннюю стабильность, чувствуя прилив сил каждый день.",
+      "composition": "Vitamin A - 1125 mcg\nVitamin C (Calcium Ascorbate) - 100 mg\nVitamin D3 - 15 mcg\nVitamin E - 10 mg\nVitamin K1 - 40 mcg\nVitamin B1 - 5 mg\nVitamin B2 - 6 mg\nVitamin B3 - 25 mg\nVitamin B6 (Pyridoxine Hydrochloride) - 6 mg\nFolic Acid (Pteroylmonoglutamic Acid) - 200 mcg\nVitamin B12 (Methylcobalamin) - 9 mcg\nFlexiblend (Hyaluroniс Acid, Collagen Powder) - 13,5 mg\nMemoblend (Choline (as Choline Bitartrate), Inositol, Silicon (as Silicon Dioxide) - 12 mg\nLycopene - 475 mcg\nLutein - 475 mcg\nAstaxanthin - 25 mcg\nBiotin - 150 mcg\nPantothenic Acid - 15 mg\nCalcium (Citrate 208 mg) - 50 mg\nIron (from Sulphate 24,5 mg) - 9 mg\nIodine (Potassium Iodide) - 75 mcg\nMagnesium (from Citrate 310 mg) - 50 mg\nZinc (from Bisglycinate Chelate 37,5 mg) - 7,5 mg\nSelenium (Organic) - 100 mcg\nCopper (Sulphate) - 1 mg\nManganese (Sulphate) - 1 mg\nChromium (Picolinate 0,48 mg) - 60 mcg\nMolybdenum - 37.5 mcg\nFruit & Vegetables Powerblend (Orange peel powder, acai fruit powder, cranberry fruit powder, blueberry fruit powder, pomegranate fruit powder, broccoli powder, spinach leaves powder, elderberry fruit powder, grape skin powder, tomato powder) - 40.5 mg\nBeauty-blend (Green Tea Extract, Alpha-Lipoic Acid, grape skin extract) - 47,5 mg\nZeaxanthin - 95 mcg",
+      "image": "assets/uploads/bez_7910_1.webp"
+    },
+    {
+      "id": "0000020",
+      "title": "Multivitamin for Kids 60 gummies",
+      "composition": "Vitamin A - 200 mcg\nVitamin D3 - 250IU\nVitamin K2 (MK-7) - 25 mcg\nVitamin E - 2,5 mg\nVitamin C - 20 mg\nVitamin B1 - 1 mg\nVitamin B2 - 1 mg\nVitamin B3 - 3 mg\nVitamin B5 - 3 mg\nVitamin B6 - 1 mg\nBiotin - 25 mcg\nİnositol - 5 mcg\nZinc - 2 mg\nIodine - 50 mcg\nManganese - 0,5 mg\nIron - 1 mg\nFolic Acid - 50 mcg\nVitamin B12 (in the form of Methylcobalamin) - 3 mcg\nSelenium - 10 mcg\nBeta-carotene - 1 mg\nCopper (from Sulphate) – 50 mcg\nChromium (from Picolinate) - 5 mcg\nMagnesium - 25 mg\nCalcium - 25 mg",
+      "description": "Мощная поддержка растущего организма в формате вкусного лакомства, которое дети принимают с удовольствием. Практическая польза заключается в укреплении иммунного барьера, стимуляции правильного роста костей и поддержании высокой концентрации внимания во время учебы. Эффект обеспечивается сбалансированным комплексом витаминов A, C, D и группы B, которые выступают катализаторами для всех обменных процессов и формирования нервной системы. Специальная жевательная форма гарантирует бережное усвоение микроэлементов без раздражения детского желудка. В результате ваш ребенок получает надежный фундамент для физического развития и защиты от сезонных простуд.",
+      "image": "assets/uploads/bez_7904_1.webp"
+    },
+    {
+      "id": "0000021",
+      "title": "5-MHTF + B12 90 softgels",
+      "composition": "5-MHTF (6S)-5-methyltetrahydrofolate of glucosamine salt]) - 400 mcg of Folic Acid\nVitamin B12 (Methylcobalamin) - 1,3 mcg",
+      "description": "Биодоступная формула для мощной поддержки нервной системы, детоксикации организма и стабильного эмоционального фона. Практическая польза заключается в быстром снижении уровня гомоцистеина, что защищает сосуды и сердце от повреждений, а мозг — от когнитивного спада. Эффект обеспечивается использованием метилированных форм витаминов (метилфолат и метилкобаламин), которые всасываются мгновенно и начинают работать сразу, минуя сложные процессы преобразования в печени. Этот тандем выступает ключевым катализатором синтеза серотонина и дофамина, возвращая вам ясность мышления и устойчивость к стрессу. В результате вы получаете стабильный прилив энергии, ровное настроение и надежную защиту сердечно-сосудистой системы.",
+      "image": "assets/uploads/bez_7926_1.webp"
     }
   ]
 }
