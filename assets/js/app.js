@@ -101,3 +101,46 @@ menuLinks.forEach(link => {
         body.classList.remove('overflow-hidden');
     });
 });
+
+// --- Функция для рекомендаций (добавить в конец app.js) ---
+document.addEventListener("DOMContentLoaded", () => {
+    const isProductPage = document.getElementById('recommendations-grid');
+    if (isProductPage) {
+        // Подхватываем текущий ID товара из ссылки
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentId = urlParams.get('id');
+
+        fetch('./assets/data/products.json')
+            .then(res => res.json())
+            .then(data => {
+                const products = data.items || [];
+                const grid = document.getElementById('recommendations-grid');
+                
+                // Исключаем текущий товар и перемешиваем остальные
+                const otherProducts = products.filter(p => p.id !== currentId);
+                const shuffled = otherProducts.sort(() => 0.5 - Math.random());
+                const selected = shuffled.slice(0, 4); // Берем 4 штуки
+
+                grid.innerHTML = ''; // Очищаем контейнер
+
+                // Рендерим карточки (вся карточка - это тег <a>)
+                selected.forEach(item => {
+                    const imgPath = item.image ? (item.image.startsWith('.') ? item.image : `./${item.image}`) : '';
+                    
+                    const card = document.createElement('a');
+                    card.href = `product.html?id=${item.id}`;
+                    card.className = "group block cursor-pointer flex flex-col h-full bg-white rounded-sm"; 
+                    
+                    card.innerHTML = `
+                        <div class="aspect-[4/5] bg-gray-50 mb-3 overflow-hidden relative rounded-sm">
+                            <img src="${imgPath}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        </div>
+                        <h3 class="font-heading text-lg md:text-xl uppercase font-bold text-brand-dark mb-1 group-hover:text-brand-green transition">${item.title}</h3>
+                        <span class="text-[10px] font-bold text-brand-green uppercase tracking-widest mt-auto">Смотреть</span>
+                    `;
+                    grid.appendChild(card);
+                });
+            })
+            .catch(err => console.error("Ошибка загрузки рекомендаций:", err));
+    }
+});
