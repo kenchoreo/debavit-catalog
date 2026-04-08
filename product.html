@@ -60,14 +60,8 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-                <img src="./assets/img/logo.svg" alt="Debavit" class="h-7">
-            </a>
-            <button id="menu-close" class="p-2 text-brand-dark focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
+            <a href="index.html" class="flex items-center"><img src="./assets/img/logo.svg" alt="Debavit" class="h-7"></a>
+            <button id="menu-close" class="p-2 text-brand-dark focus:outline-none"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
         </div>
         <div class="flex flex-col px-4 py-8 space-y-6 text-2xl font-heading uppercase text-brand-dark">
             <a href="index.html" class="hover:text-brand-green">Главная</a>
@@ -82,7 +76,7 @@
         </div>
     </div>
 
-    <main id="main-content" class="py-10 md:py-16 flex-grow">
+    <main class="py-10 md:py-16 flex-grow">
         <div class="container mx-auto max-w-7xl px-4">
             
             <div class="mb-8 text-xs font-medium text-gray-400 tracking-wider uppercase">
@@ -96,20 +90,15 @@
             <div class="flex flex-col md:flex-row gap-10 lg:gap-16">
                 
                 <div class="md:w-1/2">
-                    <div class="aspect-[4/5] bg-gray-50 mb-4 overflow-hidden relative rounded-sm">
-                        <img id="main-image" src="" alt="" class="w-full h-full object-cover opacity-0 transition-opacity duration-500">
-                        <div id="image-loader" class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-8 h-8 border-2 border-brand-green border-t-transparent rounded-full animate-spin"></div>
-                        </div>
+                    <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
+                        <img id="main-image" src="./assets/img/product-1.jpg" alt="Фото товара" class="w-full h-full object-cover opacity-90">
                     </div>
-                    
-                    <div id="thumbnails-container" class="grid grid-cols-4 gap-4">
-                        </div>
                 </div>
 
                 <div class="md:w-1/2 flex flex-col">
+                    
                     <h1 id="product-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-brand-dark leading-none tracking-tighter mb-8">
-                        ...
+                        Загрузка названия...
                     </h1>
 
                     <div class="mb-10">
@@ -126,14 +115,14 @@
                         <div class="py-6 border-b border-gray-200">
                             <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4">Описание</h3>
                             <div id="product-description" class="text-gray-600 text-sm md:text-base font-light leading-relaxed">
-                                Загрузка...
+                                Загрузка описания...
                             </div>
                         </div>
 
                         <div class="py-6 border-b border-gray-200">
                             <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4">Состав</h3>
                             <div id="product-composition" class="prose prose-sm md:prose-base text-gray-600 font-light prose-ul:pl-0">
-                                Загрузка...
+                                Загрузка состава...
                             </div>
                         </div>
                     </div>
@@ -146,23 +135,16 @@
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto max-w-7xl px-4">
             <div class="flex justify-between items-end mb-10">
-                <div>
-                    <h2 class="font-heading text-2xl md:text-3xl uppercase font-bold text-brand-dark">Вам может понравиться</h2>
-                </div>
+                <h2 class="font-heading text-2xl md:text-3xl uppercase font-bold text-brand-dark">Вам может понравиться</h2>
                 <a href="catalog.html" class="hidden md:block text-sm font-bold uppercase tracking-widest border-b-2 border-brand-green pb-1 hover:text-brand-green transition">Смотреть все</a>
             </div>
             
-            <div id="recommendations-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="animate-pulse bg-white aspect-[4/5] rounded-sm"></div>
-                <div class="animate-pulse bg-white aspect-[4/5] rounded-sm"></div>
-                <div class="animate-pulse bg-white aspect-[4/5] rounded-sm"></div>
-                <div class="animate-pulse bg-white aspect-[4/5] rounded-sm"></div>
-            </div>
+            <div id="recommendations-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>
 
             <a href="catalog.html" class="md:hidden w-full mt-8 inline-flex border border-gray-200 py-4 text-sm font-bold uppercase tracking-widest justify-center">Посмотреть всё</a>
         </div>
     </section>
-
+    
     <section class="py-16 bg-white overflow-hidden">
         <div class="text-center mb-10">
             <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
