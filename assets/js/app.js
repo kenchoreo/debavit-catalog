@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Умная ссылка на WhatsApp
             const waBtn = document.getElementById('order-btn');
             const message = `Здравствуйте! Меня интересует товар: ${product.title}. Подскажите по наличию и доставке?`;
-            waBtn.href = `https://wa.me/77777777777?text=${encodeURIComponent(message)}`;
+            waBtn.href = `https://wa.me/77002221780?text=${encodeURIComponent(message)}`;
         } else {
             titleEl.textContent = "Товар не найден";
             document.getElementById('product-description').textContent = "Пожалуйста, вернитесь в каталог и выберите товар.";
