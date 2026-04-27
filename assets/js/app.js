@@ -1,3 +1,11 @@
+// Функция для смены главного изображения (вынесена в window, чтобы работать из HTML)
+window.changeMainImage = function(url) {
+    const mainImg = document.getElementById('main-image');
+    if (mainImg) {
+        mainImg.src = url;
+    }
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Скачиваем базу товаров
     let products = [];
@@ -11,20 +19,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("База товаров пока пуста или не найдена.");
     }
 
+    // Вспомогательная функция для путей картинок
+    const getImgPath = (path) => {
+        if (!path) return '';
+        return path.startsWith('.') ? path : `./${path}`;
+    };
+
     // 2. Логика для страницы КАТАЛОГА
     const grid = document.getElementById('products-grid');
     if (grid) {
-        grid.innerHTML = ''; // Очищаем HTML-заглушки
-        
+        grid.innerHTML = '';
         if (products.length === 0) {
             grid.innerHTML = '<p class="text-gray-500 col-span-full">Товары скоро появятся...</p>';
         } else {
             products.forEach(product => {
-                // Создаем карточку товара
                 const card = `
                 <div class="group cursor-pointer">
                     <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
-                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        <img src="${getImgPath(product.image)}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
                     </div>
                     <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center">
                         ${product.title}
@@ -42,21 +54,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     const titleEl = document.getElementById('product-title');
     if (titleEl) {
         const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id'); // Получаем ID из адресной строки
+        const productId = urlParams.get('id');
         const product = products.find(p => p.id === productId);
 
         if (product) {
-            // Подставляем данные
             document.title = `${product.title} — Debavit`;
-            document.getElementById('breadcrumb-name').textContent = product.title;
+            const breadcrumb = document.getElementById('breadcrumb-name');
+            if(breadcrumb) breadcrumb.textContent = product.title;
             titleEl.textContent = product.title;
             
-            // Если фото загружено, вставляем его
-            if(product.image) {
-                document.getElementById('main-image').src = product.image;
+            // --- ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ ---
+            const mainImgEl = document.getElementById('main-image');
+            if (mainImgEl && product.image) {
+                mainImgEl.src = getImgPath(product.image);
+                // Делаем главное фото кликабельным (открытие в новой вкладке)
+                mainImgEl.style.cursor = 'zoom-in';
+                mainImgEl.onclick = () => window.open(mainImgEl.src, '_blank');
+            }
+
+            // Создаем блок превью (миниатюр)
+            const thumbContainer = document.getElementById('thumbnails-container');
+            if (thumbContainer) {
+                thumbContainer.innerHTML = '';
+                const images = [product.image, product.image2, product.image3].filter(img => img);
+                
+                if (images.length > 1) {
+                    images.forEach(imgUrl => {
+                        const fullPath = getImgPath(imgUrl);
+                        const thumb = document.createElement('div');
+                        thumb.className = "w-20 h-20 border border-gray-200 rounded-sm overflow-hidden cursor-pointer hover:border-black transition-all";
+                        thumb.innerHTML = `<img src="${fullPath}" class="w-full h-full object-cover" onclick="changeMainImage('${fullPath}')">`;
+                        thumbContainer.appendChild(thumb);
+                    });
+                }
             }
             
-            // Заменяем переносы строк на теги <br> для красивого отображения
             if(document.getElementById('product-description')) {
                 document.getElementById('product-description').innerHTML = product.description.replace(/\n/g, '<br>');
             }
@@ -64,14 +96,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 document.getElementById('product-composition').innerHTML = product.composition.replace(/\n/g, '<br>');
             }
 
-            // Умная ссылка на WhatsApp
+            // --- УМНАЯ ССЫЛКА НА WHATSAPP ---
             const waBtn = document.getElementById('order-btn');
-            const message = `Здравствуйте! Меня интересует товар: ${product.title}. Подскажите по наличию и доставке?`;
-            waBtn.href = `https://wa.me/77002221780?text=${encodeURIComponent(message)}`;
+            if (waBtn) {
+                const message = `Здравствуйте! Хочу заказать: ${product.title}`;
+                waBtn.href = `https://wa.me/77002221780?text=${encodeURIComponent(message)}`;
+            }
         } else {
             titleEl.textContent = "Товар не найден";
-            document.getElementById('product-description').textContent = "Пожалуйста, вернитесь в каталог и выберите товар.";
-            document.getElementById('order-btn').style.display = 'none';
+            const desc = document.getElementById('product-description');
+            if(desc) desc.textContent = "Пожалуйста, вернитесь в каталог и выберите товар.";
+            const btn = document.getElementById('order-btn');
+            if(btn) btn.style.display = 'none';
         }
     }
 });
@@ -83,8 +119,8 @@ const mobileMenu = document.getElementById('mobile-menu');
 const body = document.body;
 
 function toggleMenu() {
+    if(!mobileMenu) return;
     mobileMenu.classList.toggle('translate-x-full');
-    // Блокируем скролл страницы при открытом меню
     body.classList.toggle('overflow-hidden');
 }
 
@@ -93,20 +129,20 @@ if(menuOpenBtn && menuCloseBtn) {
     menuCloseBtn.addEventListener('click', toggleMenu);
 }
 
-// Закрываем меню при клике на ссылку (важно для одностраничных переходов)
-const menuLinks = mobileMenu.querySelectorAll('a');
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('translate-x-full');
-        body.classList.remove('overflow-hidden');
+if(mobileMenu) {
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            body.classList.remove('overflow-hidden');
+        });
     });
-});
+}
 
-// --- Функция для рекомендаций (добавить в конец app.js) ---
+// --- РЕКОМЕНДАЦИИ ---
 document.addEventListener("DOMContentLoaded", () => {
-    const isProductPage = document.getElementById('recommendations-grid');
-    if (isProductPage) {
-        // Подхватываем текущий ID товара из ссылки
+    const recGrid = document.getElementById('recommendations-grid');
+    if (recGrid) {
         const urlParams = new URLSearchParams(window.location.search);
         const currentId = urlParams.get('id');
 
@@ -114,23 +150,16 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(res => res.json())
             .then(data => {
                 const products = data.items || [];
-                const grid = document.getElementById('recommendations-grid');
-                
-                // Исключаем текущий товар и перемешиваем остальные
                 const otherProducts = products.filter(p => p.id !== currentId);
                 const shuffled = otherProducts.sort(() => 0.5 - Math.random());
-                const selected = shuffled.slice(0, 4); // Берем 4 штуки
+                const selected = shuffled.slice(0, 4);
 
-                grid.innerHTML = ''; // Очищаем контейнер
-
-                // Рендерим карточки (вся карточка - это тег <a>)
+                recGrid.innerHTML = '';
                 selected.forEach(item => {
                     const imgPath = item.image ? (item.image.startsWith('.') ? item.image : `./${item.image}`) : '';
-                    
                     const card = document.createElement('a');
                     card.href = `product.html?id=${item.id}`;
                     card.className = "group block cursor-pointer flex flex-col h-full bg-white rounded-sm"; 
-                    
                     card.innerHTML = `
                         <div class="aspect-[4/5] bg-gray-50 mb-3 overflow-hidden relative rounded-sm">
                             <img src="${imgPath}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
@@ -138,38 +167,28 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3 class="font-heading text-lg md:text-xl uppercase font-bold text-brand-dark mb-1 group-hover:text-brand-green transition">${item.title}</h3>
                         <span class="text-[10px] font-bold text-brand-green uppercase tracking-widest mt-auto">Смотреть</span>
                     `;
-                    grid.appendChild(card);
+                    recGrid.appendChild(card);
                 });
             })
-            .catch(err => console.error("Ошибка загрузки рекомендаций:", err));
+            .catch(err => console.error("Ошибка рекомендаций:", err));
     }
 });
 
-// --- ЛОГИКА ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ---
+// --- ПОПУЛЯРНЫЕ НА ГЛАВНОЙ ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Проверяем, находимся ли мы на главной странице
     const popularGrid = document.getElementById('popular-products-grid');
-    
     if (popularGrid) {
         fetch('./assets/data/products.json')
             .then(res => res.json())
             .then(data => {
                 const products = data.items || [];
-                
-                // Берем первые 4 товара для блока "Популярные"
                 const popularProducts = products.slice(0, 4);
-
-                popularGrid.innerHTML = ''; // Очищаем контейнер
-
+                popularGrid.innerHTML = '';
                 popularProducts.forEach(item => {
-                    // Подготавливаем правильный путь к картинке
                     const imgPath = item.image ? (item.image.startsWith('.') ? item.image : `./${item.image}`) : '';
-                    
-                    // Создаем кликабельную карточку-ссылку
                     const card = document.createElement('a');
                     card.href = `product.html?id=${item.id}`;
                     card.className = "group block cursor-pointer flex flex-col h-full"; 
-                    
                     card.innerHTML = `
                         <div class="aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden relative rounded-sm">
                             <img src="${imgPath}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
@@ -184,6 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     popularGrid.appendChild(card);
                 });
             })
-            .catch(err => console.error("Ошибка загрузки популярных товаров:", err));
+            .catch(err => console.error("Ошибка популярных:", err));
     }
 });
