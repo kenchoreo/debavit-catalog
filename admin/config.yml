@@ -20,8 +20,10 @@ collections:
             name: "items"
             widget: "list"
             fields:
-              - {label: "ID товара (на англ, без пробелов, например: item-1)", name: "id", widget: "string"}
+              - {label: "ID товара (на англ, без пробелов)", name: "id", widget: "string"}
               - {label: "Название товара", name: "title", widget: "string"}
-              - {label: "Фото", name: "image", widget: "image"}
+              - {label: "Главное фото", name: "image", widget: "image"} # Основное фото
+              - {label: "Дополнительное фото 1", name: "image2", widget: "image", required: false}
+              - {label: "Дополнительное фото 2", name: "image3", widget: "image", required: false}
               - {label: "Описание", name: "description", widget: "text"}
-              - {label: "Состав (можно использовать переносы строк)", name: "composition", widget: "text"}
+              - {label: "Состав", name: "composition", widget: "text"}
