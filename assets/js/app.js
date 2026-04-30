@@ -258,6 +258,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             titleEl.textContent = "Товар не найден";
         }
+        
+        // --- ИСПРАВЛЕНИЕ НЕВИДИМОСТИ СТРАНИЦЫ ---
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            mainContent.classList.add('loaded');
+        }
     }
 
     // 3. РЕКОМЕНДАЦИИ
