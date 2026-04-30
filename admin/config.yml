@@ -27,3 +27,34 @@ collections:
               - {label: "Дополнительное фото 2", name: "image3", widget: "image", required: false}
               - {label: "Описание", name: "description", widget: "text"}
               - {label: "Состав", name: "composition", widget: "text"}
+              
+              # --- БЛОК ИНТЕГРАЦИИ С МАРКЕТПЛЕЙСАМИ ---
+              - label: "Рейтинг Kaspi (например: 4.8)"
+                name: "kaspi_rating"
+                widget: "string"
+                required: false
+              - label: "Ссылка на товар в Kaspi"
+                name: "kaspi_link"
+                widget: "string"
+                required: false
+              
+              - label: "Рейтинг Wildberries (например: 4.9)"
+                name: "wb_rating"
+                widget: "string"
+                required: false
+              - label: "Ссылка на товар в Wildberries"
+                name: "wb_link"
+                widget: "string"
+                required: false
+              
+              - label: "Отзывы клиентов"
+                name: "reviews"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Имя клиента", name: "author", widget: "string"}
+                  - {label: "Текст отзыва", name: "text", widget: "text"}
+                  - label: "Источник"
+                    name: "source"
+                    widget: "select"
+                    options: ["Kaspi", "Wildberries"]
