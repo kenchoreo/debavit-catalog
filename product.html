@@ -15,7 +15,8 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-green': '#5d7159',
+                        'brand-green': '#2F9E8E',
+                        'brand-light': '#F4F0E5',
                         'brand-dark': '#0d0d0d',
                     },
                     fontFamily: {
@@ -30,6 +31,9 @@
         /* Плавное появление контента после загрузки данных из админки */
         #main-content { opacity: 0; transition: opacity 0.4s ease; }
         #main-content.loaded { opacity: 1; }
+        /* Скрываем скроллбар для плиток на мобилке */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
@@ -76,9 +80,10 @@
         </div>
     </div>
 
-    <main class="py-10 md:py-16 flex-grow">
+    <main class="py-10 md:py-16 flex-grow" id="main-content">
         <div class="container mx-auto max-w-7xl px-4">
             
+            <!-- Хлебные крошки -->
             <div class="mb-8 text-xs font-medium text-gray-400 tracking-wider uppercase">
                 <a href="index.html" class="hover:text-black transition">Главная</a> 
                 <span class="mx-2">/</span> 
@@ -87,47 +92,32 @@
                 <span id="breadcrumb-name" class="text-black">Загрузка...</span>
             </div>
 
+            <!-- Блок с фото и инфо товара -->
             <div class="flex flex-col md:flex-row gap-10 lg:gap-16">
                 
+                <!-- Левая колонка: Галерея -->
                 <div class="md:w-1/2">
-    <div class="group relative aspect-[4/5] bg-[#1a2a1d] mb-4 overflow-hidden rounded-sm">
-        <img id="main-image" src="" alt="Фото товара" class="w-full h-full object-cover opacity-90 transition-transform duration-300 cursor-zoom-in" onclick="openModal()">
-        
-        <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-    </div>
-    
-    <div id="thumbnails-container" class="flex gap-2 mt-4"></div>
-</div>
+                    <div class="group relative aspect-[4/5] bg-brand-light mb-4 overflow-hidden rounded-sm">
+                        <img id="main-image" src="" alt="Фото товара" class="w-full h-full object-cover opacity-90 transition-transform duration-300 cursor-zoom-in" onclick="openModal()">
+                        
+                        <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                    <div id="thumbnails-container" class="flex gap-2 mt-4"></div>
+                </div>
 
-<div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4 md:p-10">
-    <button onclick="closeModal()" class="absolute top-6 right-6 text-white hover:text-gray-300 transition">
-        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-    </button>
-    
-    <button onclick="prevImage(event)" class="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:scale-110 transition">
-        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-    </button>
-    
-    <img id="modal-img" src="" class="max-w-full max-h-full object-contain shadow-2xl">
-    
-    <button onclick="nextImage(event)" class="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:scale-110 transition">
-        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-    </button>
-</div>
-
+                <!-- Правая колонка: Инфо -->
                 <div class="md:w-1/2 flex flex-col">
-                    
                     <h1 id="product-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-brand-dark leading-none tracking-tighter mb-8">
                         Загрузка названия...
                     </h1>
 
                     <div class="mb-10">
-                        <a id="order-btn" href="#" target="_blank" class="w-full md:w-auto inline-flex bg-[#5d7159] text-white px-10 py-5 text-sm font-bold uppercase tracking-widest justify-center items-center hover:opacity-90 transition-all rounded-sm shadow-xl">
+                        <a id="order-btn" href="#" target="_blank" class="w-full md:w-auto inline-flex bg-brand-green text-white px-10 py-5 text-sm font-bold uppercase tracking-widest justify-center items-center hover:opacity-90 transition-all rounded-sm shadow-xl">
                             <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.405.314.159.386.541 1.32.588 1.416.048.096.079.208.014.332-.065.125-.111.192-.222.327-.11.135-.233.303-.332.405-.11.114-.227.238-.098.46.129.223.571.942 1.226 1.525.844.75 1.557.984 1.774 1.073.217.09.346.076.476-.072.129-.148.556-.647.705-.868.149-.222.299-.187.505-.111s1.303.614 1.527.726c.224.111.374.166.429.259.055.093.055.539-.089.944z"/>
                             </svg>
@@ -151,11 +141,12 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-        <div id="reviews-section" class="mt-16 pt-16 border-t border-gray-200 hidden">
+
+            </div> <!-- Конец блока с фото и инфо -->
+
+            <!-- БЛОК ОТЗЫВОВ (Скрыт по умолчанию) -->
+            <div id="reviews-section" class="mt-16 pt-16 border-t border-gray-200 hidden">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
                     <div>
                         <h2 class="font-heading text-3xl md:text-4xl font-bold uppercase text-brand-dark mb-4 tracking-tighter">Отзывы покупателей</h2>
@@ -179,15 +170,32 @@
                     </div>
                     
                     <div id="all-reviews-links" class="flex flex-col sm:flex-row gap-3 hidden">
-                        </div>
+                    </div>
                 </div>
 
                 <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    </div>
-            </div>
+                </div>
+            </div> <!-- Конец блока отзывов -->
+
+        </div> <!-- Конец основного контейнера -->
     </main>
 
-    <section class="py-16 bg-gray-50">
+    <!-- Модальное окно галереи -->
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4 md:p-10">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white hover:text-gray-300 transition">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <button onclick="prevImage(event)" class="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:scale-110 transition">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <img id="modal-img" src="" class="max-w-full max-h-full object-contain shadow-2xl">
+        <button onclick="nextImage(event)" class="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:scale-110 transition">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
+    <!-- Рекомендации -->
+    <section class="py-16 bg-brand-light">
         <div class="container mx-auto max-w-7xl px-4">
             <div class="flex justify-between items-end mb-10">
                 <h2 class="font-heading text-2xl md:text-3xl uppercase font-bold text-brand-dark">Вам может понравиться</h2>
@@ -200,6 +208,7 @@
         </div>
     </section>
     
+    <!-- Инстаграм -->
     <section class="py-16 bg-white overflow-hidden">
         <div class="text-center mb-10">
             <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
