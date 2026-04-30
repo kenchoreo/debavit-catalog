@@ -163,6 +163,98 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const message = `Здравствуйте! Хочу заказать: ${product.title}`;
                 waBtn.href = `https://wa.me/77002221780?text=${encodeURIComponent(message)}`;
             }
+
+            // --- ЗАГРУЗКА ОТЗЫВОВ И РЕЙТИНГОВ ---
+            const reviewsSection = document.getElementById('reviews-section');
+            const marketplacesRating = document.getElementById('marketplaces-rating');
+            const allReviewsLinks = document.getElementById('all-reviews-links');
+            const reviewsGrid = document.getElementById('reviews-grid');
+
+            if (reviewsSection && marketplacesRating && allReviewsLinks && reviewsGrid) {
+                let showReviewsSection = false;
+
+                // Рейтинги и бейджи маркетплейсов
+                if (product.kaspi_rating || product.wb_rating) {
+                    marketplacesRating.classList.remove('hidden');
+                    showReviewsSection = true;
+
+                    // Логика для Kaspi
+                    if (product.kaspi_rating && product.kaspi_link) {
+                        const kaspiBadge = document.getElementById('kaspi-badge');
+                        const kaspiVal = document.getElementById('kaspi-rating-value');
+                        if (kaspiBadge && kaspiVal) {
+                            kaspiVal.textContent = product.kaspi_rating;
+                            kaspiBadge.href = product.kaspi_link;
+                            kaspiBadge.classList.remove('hidden');
+                            kaspiBadge.classList.add('inline-flex');
+                            
+                            allReviewsLinks.classList.remove('hidden');
+                            allReviewsLinks.innerHTML += `
+                                <a href="${product.kaspi_link}" target="_blank" class="border border-[#f14635] text-[#f14635] px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#f14635] hover:text-white transition-all rounded-sm text-center">
+                                    Все отзывы на Kaspi
+                                </a>
+                            `;
+                        }
+                    }
+
+                    // Логика для Wildberries
+                    if (product.wb_rating && product.wb_link) {
+                        const wbBadge = document.getElementById('wb-badge');
+                        const wbVal = document.getElementById('wb-rating-value');
+                        if (wbBadge && wbVal) {
+                            wbVal.textContent = product.wb_rating;
+                            wbBadge.href = product.wb_link;
+                            wbBadge.classList.remove('hidden');
+                            wbBadge.classList.add('inline-flex');
+
+                            allReviewsLinks.classList.remove('hidden');
+                            allReviewsLinks.innerHTML += `
+                                <a href="${product.wb_link}" target="_blank" class="border border-[#cb11ab] text-[#cb11ab] px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#cb11ab] hover:text-white transition-all rounded-sm text-center">
+                                    Все отзывы на WB
+                                </a>
+                            `;
+                        }
+                    }
+                }
+
+                // Карточки с текстами отзывов
+                if (product.reviews && product.reviews.length > 0) {
+                    showReviewsSection = true;
+                    reviewsGrid.innerHTML = ''; 
+
+                    // Ограничиваем до 3 отзывов, чтобы сетка была ровной
+                    const reviewsToShow = product.reviews.slice(0, 3);
+
+                    reviewsToShow.forEach(review => {
+                        let sourceColor = "bg-gray-100 text-gray-500";
+                        if (review.source === "Kaspi") sourceColor = "bg-[#f14635]/10 text-[#f14635]";
+                        if (review.source === "Wildberries") sourceColor = "bg-[#cb11ab]/10 text-[#cb11ab]";
+
+                        const reviewCard = document.createElement('div');
+                        reviewCard.className = "bg-gray-50 p-6 rounded-sm border border-gray-100 flex flex-col";
+                        reviewCard.innerHTML = `
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="font-bold text-brand-dark">${review.author || 'Гость'}</div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm ${sourceColor}">${review.source || 'Отзыв'}</span>
+                            </div>
+                            <div class="flex text-[#FFB800] mb-4">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-sm text-gray-600 font-light leading-relaxed flex-grow italic">"${review.text}"</p>
+                        `;
+                        reviewsGrid.appendChild(reviewCard);
+                    });
+                }
+
+                // Открываем секцию, если есть хоть что-то
+                if (showReviewsSection) {
+                    reviewsSection.classList.remove('hidden');
+                }
+            }
         } else {
             titleEl.textContent = "Товар не найден";
         }
