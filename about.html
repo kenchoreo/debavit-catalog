@@ -1,166 +1,126 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О нас — Debavit</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-green': '#5d7159',
-                        'brand-dark': '#0d0d0d',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Oswald', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
-
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl relative z-[60]">
-    <a href="index.html" class="flex items-center">
-        <img src="./assets/img/logo.svg" alt="Debavit" class="h-7 md:h-8">
-    </a>
-
-    <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-        <a href="index.html" class="hover:text-black transition">Главная</a>
-        <a href="catalog.html" class="hover:text-black transition">Каталог</a>
-        <a href="about.html" class="hover:text-black transition">О нас</a>
-        <a href="contacts.html" class="hover:text-black transition">Контакты</a>
-    </div>
-
-    <div class="flex items-center space-x-4 md:space-x-6">
-        <a href="tel:+77002221780" class="text-sm font-semibold hidden md:block">+7 700 222 17 80</a>
-        <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
-        
-        <button id="menu-open" class="md:hidden p-2 text-brand-dark focus:outline-none">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
-            </svg>
-        </button>
-    </div>
-</nav>
-
-<div id="mobile-menu" class="fixed inset-0 z-[100] bg-white translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-    <div class="flex justify-between items-center px-4 py-4 border-b border-gray-100">
-        <img src="./assets/img/logo.svg" alt="Debavit" class="h-7">
-        <button id="menu-close" class="p-2 text-brand-dark">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-    </div>
-
-    <div class="flex flex-col h-full px-6 pt-12 pb-24 justify-between overflow-y-auto">
-        <div class="flex flex-col space-y-8">
-            <a href="index.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">Главная</a>
-            <a href="catalog.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">Каталог</a>
-            <a href="about.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">О нас</a>
-            <a href="contacts.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">Контакты</a>
-        </div>
-
-        <div class="space-y-8">
-            <div class="flex flex-col space-y-2">
-                <p class="text-xs uppercase tracking-widest text-gray-400 font-bold">Связаться с нами</p>
-                <a href="tel:+77002221780" class="text-xl font-medium">+7 700 222 17 80</a>
-                <div class="flex space-x-4 pt-2">
-                    <a href="https://instagram.com/debavit_official.kz" class="text-brand-dark hover:text-brand-green transition">Instagram</a>
-                    <a href="https://wa.me/77002221780" class="text-brand-dark hover:text-brand-green transition">WhatsApp</a>
+<main class="pb-20 flex-grow">
+        <!-- 1. Заголовок и главная философия (уже есть в коде) -->
+        <header class="py-16 md:py-24">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <div class="max-w-3xl">
+                    <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-4 font-medium text-gray-400">О бренде</p>
+                    <h1 class="font-heading text-5xl md:text-7xl lg:text-[80px] font-bold uppercase text-brand-dark leading-[0.9] tracking-tighter mb-8">
+                        Мы создаем <br>
+                        <span class="text-[#52664C]">чистую энергию</span> <br>
+                        для вашей жизни
+                    </h1>
                 </div>
             </div>
-            
-            <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg">
-                Заказать консультацию
-            </a>
-        </div>
-    </div>
-</div>
+        </header>
 
-   <header class="py-16 md:py-24">
         <div class="container mx-auto px-4 max-w-7xl">
-            <div class="max-w-3xl">
-                <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-4 font-medium text-gray-400">О бренде</p>
-                <h1 class="font-heading text-5xl md:text-7xl lg:text-[80px] font-bold uppercase text-brand-dark leading-[0.9] tracking-tighter mb-8">
-                    Мы создаем <br>
-                    <span class="text-[#52664C]">чистую энергию</span> <br>
-                    для вашей жизни
-                </h1>
-            </div>
-        </div>
-    </header>
-
-    <main class="pb-20 md:pb-32 flex-grow">
-        <div class="container mx-auto px-4 max-w-7xl flex flex-col md:flex-row gap-12 md:gap-20">
-            
-            <div class="md:w-1/2">
-                <div class="aspect-square md:aspect-[4/5] bg-gray-100 overflow-hidden rounded-sm">
-                    <img src="./assets/img/product-1.jpg" alt="Debavit Production" class="w-full h-full object-cover">
+            <!-- 2. Блок про производство в Турции -->
+            <section class="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-24">
+                <div class="order-2 md:order-1">
+                    <h2 class="font-heading text-3xl md:text-4xl uppercase tracking-tighter mb-6 text-brand-dark">Сделано в Стамбуле</h2>
+                    <div class="text-gray-600 font-light leading-relaxed space-y-4 md:text-lg">
+                        <p>
+                            Debavit — это бренд витаминов и БАДов, производимых в сердце Турции на сертифицированных фармацевтических производствах. 
+                        </p>
+                        <p>
+                            Мы доверяем выпуск нашей продукции лидерам отрасли — заводам <strong class="text-brand-dark font-medium">«GH YILDIZ», «ELIT PHARMA»</strong> и <strong class="text-brand-dark font-medium">«SWISS BORK»</strong>. Это гарантирует строгий контроль на каждом этапе: от выбора сырья до выхода готового продукта на рынок.
+                        </p>
+                    </div>
                 </div>
-            </div>
+                <div class="order-1 md:order-2 aspect-video md:aspect-square bg-gray-100 overflow-hidden rounded-sm">
+                    <img src="./assets/img/production-map.jpg" alt="Производство в Стамбуле" class="w-full h-full object-cover">
+                </div>
+            </section>
 
-            <div class="md:w-1/2 flex flex-col justify-center">
-                <h2 class="font-heading text-3xl md:text-4xl uppercase tracking-tighter mb-6 text-brand-dark">Наша философия</h2>
-                <div class="text-gray-600 font-light leading-relaxed space-y-6 md:text-lg">
-                    <p>
-                        В основе Debavit лежит простой принцип: человеческий организм способен на невероятные вещи, если дать ему правильный строительный материал. Мы не продаем «волшебные таблетки», мы предлагаем научно обоснованный подход к восполнению дефицитов.
-                    </p>
-                    <p>
-                        Каждый наш продукт — это результат строгих исследований. Мы используем только биодоступные формы витаминов и минералов, которые усваиваются клетками на 100%, не перегружая пищеварительную систему.
-                    </p>
-                    <p>
-                        Мы верим, что забота о себе не должна быть сложной. Это ежедневный ритуал, который становится вашим надежным фундаментом для карьерных достижений, спорта и счастливой жизни.
-                    </p>
+            <!-- 3. Качество и Стандарты (карточки) -->
+            <section class="grid md:grid-cols-3 gap-8 mb-24">
+                <div class="p-8 bg-gray-50 rounded-sm border-l-4 border-brand-green">
+                    <h3 class="font-heading text-xl uppercase mb-4 text-brand-dark">Европейское сырье</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Используем ингредиенты высшего качества и продуманные формулы с рабочими дозировками и максимальной биодоступностью.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-sm border-l-4 border-brand-green">
+                    <h3 class="font-heading text-xl uppercase mb-4 text-brand-dark">Мировые стандарты</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Производство соответствует стандартам <strong class="font-medium">GMP, ISO 22000 / ISO 9001</strong>. Вся продукция имеет Halal-сертификацию.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-sm border-l-4 border-brand-green">
+                    <h3 class="font-heading text-xl uppercase mb-4 text-brand-dark">Честный подход</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Современная нутрицевтика без скрытых добавок. Мы контролируем каждый микрограмм в составе наших продуктов.</p>
+                </div>
+            </section>
+
+            <!-- 4. Спец-блок: Темное стекло -->
+            <section class="bg-brand-dark text-white p-8 md:p-16 rounded-sm mb-24 relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <h2 class="font-heading text-3xl md:text-5xl uppercase tracking-tighter mb-8 italic text-brand-green">95% продукции в темном стекле</h2>
+                    <p class="text-gray-300 mb-8 font-light leading-relaxed">Это принципиальное решение Debavit для сохранения чистоты и эффективности состава:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green font-bold">/</span>
+                            <span>Защищает активные вещества от света и окисления.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green font-bold">/</span>
+                            <span>Сохраняет стабильность состава на всём сроке годности.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green font-bold">/</span>
+                            <span>Полная инертность: стекло не взаимодействует с содержимым, в отличие от пластика.</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Фоновая картинка или декор (опционально) -->
+                <div class="absolute right-0 bottom-0 opacity-20 hidden lg:block">
+                    <img src="./assets/img/glass-bottle-silhouette.png" class="h-96">
+                </div>
+            </section>
+
+            <!-- 5. ГАЛЕРЕЯ СЕРТИФИКАТОВ -->
+            <section id="certificates">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-3xl md:text-4xl uppercase tracking-tighter text-brand-dark">Сертификаты качества</h2>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Международное признание и безопасность</p>
                 </div>
                 
-                <div class="mt-12 pt-12 border-t border-gray-200 grid grid-cols-2 gap-8">
-                    <div>
-                        <p class="font-heading text-4xl text-brand-dark mb-2">100%</p>
-                        <p class="text-sm text-gray-500 uppercase tracking-widest">Чистые составы</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- Чтобы работал клик, используем логику из app.js: openModal() -->
+                    <!-- Замените пути cert-1.jpg и т.д. на ваши реальные файлы -->
+                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-iso14001.jpg')">
+                        <img src="./assets/img/cert-iso14001.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
                     </div>
-                    <div>
-                        <p class="font-heading text-4xl text-brand-dark mb-2">ISO</p>
-                        <p class="text-sm text-gray-500 uppercase tracking-widest">Стандарт качества</p>
+                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-iso22000.jpg')">
+                        <img src="./assets/img/cert-iso22000.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
+                    </div>
+                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-gmp.jpg')">
+                        <img src="./assets/img/cert-gmp.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
+                    </div>
+                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-halal.jpg')">
+                        <img src="./assets/img/cert-halal.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
+                    </div>
+                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-iso9001.jpg')">
+                        <img src="./assets/img/cert-iso9001.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
                     </div>
                 </div>
-            </div>
-
+            </section>
         </div>
     </main>
 
-    <section class="py-16 bg-white overflow-hidden border-t border-gray-100">
-        <div class="text-center mb-10">
-            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
-            <a href="https://instagram.com/debavit_official.kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@debavit_official.kz</a>
-        </div>
-        <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2 hide-scrollbar">
-            <img src="./assets/img/insta-1.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-2.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-3.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-4.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-5.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-6.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-7.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-8.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-        </div>
-    </section>
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ СЕРТИФИКАТОВ (Добавьте это перед футером) -->
+    <div id="cert-modal" class="fixed inset-0 z-[200] hidden bg-black/95 flex items-center justify-center p-4" onclick="closeCertModal()">
+        <button class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+        <img id="cert-modal-img" src="" class="max-w-full max-h-[90vh] object-contain shadow-2xl">
+    </div>
 
-    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
-        <div class="container mx-auto px-4">
-            <p>2026 Debavit.kz</p>
-        </div>
-    </footer>
-<script src="./assets/js/app.js"></script>
-</body>
-</html>
+    <!-- ДОПОЛНИТЕЛЬНЫЙ СКРИПТ ДЛЯ МОДАЛКИ СЕРТИФИКАТОВ -->
+    <script>
+        function openCertModal(src) {
+            const modal = document.getElementById('cert-modal');
+            const img = document.getElementById('cert-modal-img');
+            img.src = src;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCertModal() {
+            document.getElementById('cert-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
