@@ -1,126 +1,22 @@
-<main class="pb-20 flex-grow">
-        <!-- 1. Заголовок и главная философия (уже есть в коде) -->
-        <header class="py-16 md:py-24">
-            <div class="container mx-auto px-4 max-w-7xl">
-                <div class="max-w-3xl">
-                    <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-4 font-medium text-gray-400">О бренде</p>
-                    <h1 class="font-heading text-5xl md:text-7xl lg:text-[80px] font-bold uppercase text-brand-dark leading-[0.9] tracking-tighter mb-8">
-                        Мы создаем <br>
-                        <span class="text-[#52664C]">чистую энергию</span> <br>
-                        для вашей жизни
-                    </h1>
-                </div>
-            </div>
-        </header>
-
-        <div class="container mx-auto px-4 max-w-7xl">
-            <!-- 2. Блок про производство в Турции -->
-            <section class="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-24">
-                <div class="order-2 md:order-1">
-                    <h2 class="font-heading text-3xl md:text-4xl uppercase tracking-tighter mb-6 text-brand-dark">Сделано в Стамбуле</h2>
-                    <div class="text-gray-600 font-light leading-relaxed space-y-4 md:text-lg">
-                        <p>
-                            Debavit — это бренд витаминов и БАДов, производимых в сердце Турции на сертифицированных фармацевтических производствах. 
-                        </p>
-                        <p>
-                            Мы доверяем выпуск нашей продукции лидерам отрасли — заводам <strong class="text-brand-dark font-medium">«GH YILDIZ», «ELIT PHARMA»</strong> и <strong class="text-brand-dark font-medium">«SWISS BORK»</strong>. Это гарантирует строгий контроль на каждом этапе: от выбора сырья до выхода готового продукта на рынок.
-                        </p>
-                    </div>
-                </div>
-                <div class="order-1 md:order-2 aspect-video md:aspect-square bg-gray-100 overflow-hidden rounded-sm">
-                    <img src="./assets/img/production-map.jpg" alt="Производство в Стамбуле" class="w-full h-full object-cover">
-                </div>
-            </section>
-
-            <!-- 3. Качество и Стандарты (карточки) -->
-            <section class="grid md:grid-cols-3 gap-8 mb-24">
-                <div class="p-8 bg-gray-50 rounded-sm border-l-4 border-brand-green">
-                    <h3 class="font-heading text-xl uppercase mb-4 text-brand-dark">Европейское сырье</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Используем ингредиенты высшего качества и продуманные формулы с рабочими дозировками и максимальной биодоступностью.</p>
-                </div>
-                <div class="p-8 bg-gray-50 rounded-sm border-l-4 border-brand-green">
-                    <h3 class="font-heading text-xl uppercase mb-4 text-brand-dark">Мировые стандарты</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Производство соответствует стандартам <strong class="font-medium">GMP, ISO 22000 / ISO 9001</strong>. Вся продукция имеет Halal-сертификацию.</p>
-                </div>
-                <div class="p-8 bg-gray-50 rounded-sm border-l-4 border-brand-green">
-                    <h3 class="font-heading text-xl uppercase mb-4 text-brand-dark">Честный подход</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Современная нутрицевтика без скрытых добавок. Мы контролируем каждый микрограмм в составе наших продуктов.</p>
-                </div>
-            </section>
-
-            <!-- 4. Спец-блок: Темное стекло -->
-            <section class="bg-brand-dark text-white p-8 md:p-16 rounded-sm mb-24 relative overflow-hidden">
-                <div class="relative z-10 max-w-2xl">
-                    <h2 class="font-heading text-3xl md:text-5xl uppercase tracking-tighter mb-8 italic text-brand-green">95% продукции в темном стекле</h2>
-                    <p class="text-gray-300 mb-8 font-light leading-relaxed">Это принципиальное решение Debavit для сохранения чистоты и эффективности состава:</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="text-brand-green font-bold">/</span>
-                            <span>Защищает активные вещества от света и окисления.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-brand-green font-bold">/</span>
-                            <span>Сохраняет стабильность состава на всём сроке годности.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-brand-green font-bold">/</span>
-                            <span>Полная инертность: стекло не взаимодействует с содержимым, в отличие от пластика.</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Фоновая картинка или декор (опционально) -->
-                <div class="absolute right-0 bottom-0 opacity-20 hidden lg:block">
-                    <img src="./assets/img/glass-bottle-silhouette.png" class="h-96">
-                </div>
-            </section>
-
-            <!-- 5. ГАЛЕРЕЯ СЕРТИФИКАТОВ -->
-            <section id="certificates">
-                <div class="text-center mb-12">
-                    <h2 class="font-heading text-3xl md:text-4xl uppercase tracking-tighter text-brand-dark">Сертификаты качества</h2>
-                    <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Международное признание и безопасность</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <!-- Чтобы работал клик, используем логику из app.js: openModal() -->
-                    <!-- Замените пути cert-1.jpg и т.д. на ваши реальные файлы -->
-                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-iso14001.jpg')">
-                        <img src="./assets/img/cert-iso14001.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
-                    </div>
-                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-iso22000.jpg')">
-                        <img src="./assets/img/cert-iso22000.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
-                    </div>
-                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-gmp.jpg')">
-                        <img src="./assets/img/cert-gmp.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
-                    </div>
-                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-halal.jpg')">
-                        <img src="./assets/img/cert-halal.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
-                    </div>
-                    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/cert-iso9001.jpg')">
-                        <img src="./assets/img/cert-iso9001.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ СЕРТИФИКАТОВ (Добавьте это перед футером) -->
-    <div id="cert-modal" class="fixed inset-0 z-[200] hidden bg-black/95 flex items-center justify-center p-4" onclick="closeCertModal()">
-        <button class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-        <img id="cert-modal-img" src="" class="max-w-full max-h-[90vh] object-contain shadow-2xl">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <!-- ISO 14001 -->
+    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/14001_2015.jpg.jpg')">
+        <img src="./assets/img/14001_2015.jpg.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
     </div>
-
-    <!-- ДОПОЛНИТЕЛЬНЫЙ СКРИПТ ДЛЯ МОДАЛКИ СЕРТИФИКАТОВ -->
-    <script>
-        function openCertModal(src) {
-            const modal = document.getElementById('cert-modal');
-            const img = document.getElementById('cert-modal-img');
-            img.src = src;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeCertModal() {
-            document.getElementById('cert-modal').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    </script>
+    <!-- ISO 22000 -->
+    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/22000_2018.jpg')">
+        <img src="./assets/img/22000_2018.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
+    </div>
+    <!-- GMP (Судя по цифрам в названии) -->
+    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/7669636826.jpg')">
+        <img src="./assets/img/7669636826.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
+    </div>
+    <!-- HALAL -->
+    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/HELAL-1.png.webp')">
+        <img src="./assets/img/HELAL-1.png.webp" class="w-full h-full object-contain group-hover:opacity-80 transition">
+    </div>
+    <!-- ISO 9001 -->
+    <div class="aspect-[1/1.4] bg-white border border-gray-100 shadow-sm p-2 cursor-zoom-in group" onclick="openCertModal('./assets/img/9001_2015.jpg.jpg')">
+        <img src="./assets/img/9001_2015.jpg.jpg" class="w-full h-full object-contain group-hover:opacity-80 transition">
+    </div>
+</div>
