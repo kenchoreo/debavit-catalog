@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опт — Debavit</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159',
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <!-- НАВИГАЦИЯ -->
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl relative z-[60]">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-7 md:h-8">
+        </a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-black transition">Главная</a>
+            <a href="catalog.html" class="hover:text-black transition">Каталог</a>
+            <a href="about.html" class="hover:text-black transition">О нас</a>
+            <a href="opt.html" class="text-black transition border-b-2 border-brand-green pb-1">Опт</a>
+            <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+        </div>
+        <div class="flex items-center space-x-4 md:space-x-6">
+            <a href="tel:+77002221780" class="text-sm font-semibold hidden md:block">+7 700 222 17 80</a>
+            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
+            <button id="menu-open" class="md:hidden p-2 text-brand-dark focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- МОБИЛЬНОЕ МЕНЮ -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden bg-white flex-col">
+        <div class="flex justify-between items-center px-4 py-4 border-b border-gray-100">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-7">
+            <button id="menu-close" class="p-2 text-brand-dark">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div class="flex flex-col h-full px-6 pt-12 pb-24 justify-between overflow-y-auto">
+            <div class="flex flex-col space-y-8">
+                <a href="index.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">Главная</a>
+                <a href="catalog.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">Каталог</a>
+                <a href="about.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">О нас</a>
+                <a href="opt.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-green">Опт</a>
+                <a href="contacts.html" class="font-heading text-4xl font-bold uppercase tracking-tighter text-brand-dark">Контакты</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- КОНТЕНТ СТРАНИЦЫ ОПТ -->
+    <main class="py-16 md:py-24 flex-grow bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl flex flex-col lg:flex-row gap-12 lg:gap-20">
+            
+            <!-- Левая колонка: Текст -->
+            <div class="lg:w-1/2 flex flex-col justify-center">
+                <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-4 font-medium text-brand-green">Сотрудничество</p>
+                <h1 class="font-heading text-4xl md:text-6xl font-bold uppercase text-brand-dark leading-[1] tracking-tighter mb-6">
+                    Станьте партнером <br>Debavit
+                </h1>
+                <p class="text-gray-600 font-light leading-relaxed mb-8 md:text-lg">
+                    Мы открыты к сотрудничеству с аптеками, клиниками, маркетплейсами и дистрибьюторами. Оставьте заявку, и наш менеджер свяжется с вами для обсуждения индивидуальных условий, цен и объемов поставок.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-white shadow-sm text-brand-green font-bold text-xl rounded-sm shrink-0">✓</div>
+                        <div>
+                            <h3 class="font-heading text-lg uppercase text-brand-dark mb-1">Выгодная маржинальность</h3>
+                            <p class="text-sm text-gray-500">Специальные оптовые цены, позволяющие вам зарабатывать.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-white shadow-sm text-brand-green font-bold text-xl rounded-sm shrink-0">✓</div>
+                        <div>
+                            <h3 class="font-heading text-lg uppercase text-brand-dark mb-1">Маркетинговая поддержка</h3>
+                            <p class="text-sm text-gray-500">Предоставляем фото- и видеоматериалы для ваших ресурсов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка: Форма -->
+            <div class="lg:w-1/2">
+                <div class="bg-white p-8 md:p-12 shadow-xl rounded-sm border-t-4 border-brand-green">
+                    <h2 class="font-heading text-2xl uppercase text-brand-dark mb-8">Оставить заявку</h2>
+                    
+                    <form id="wholesale-form" class="space-y-6">
+                        <!-- ФИО -->
+                        <div>
+                            <label for="opt-name" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">ФИО / Название компании <span class="text-red-500">*</span></label>
+                            <input type="text" id="opt-name" required placeholder="Иванов Иван" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm">
+                        </div>
+
+                        <!-- Email или Телефон -->
+                        <div>
+                            <label for="opt-contact" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Email или Телефон <span class="text-red-500">*</span></label>
+                            <input type="text" id="opt-contact" required placeholder="+7 (700) 000-00-00 или mail@example.com" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm">
+                        </div>
+
+                        <!-- Как связаться -->
+                        <div>
+                            <label for="opt-method" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Удобный способ связи</label>
+                            <select id="opt-method" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm appearance-none cursor-pointer">
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="Telegram">Telegram</option>
+                                <option value="Звонок на телефон">Звонок на телефон</option>
+                                <option value="Письмо на почту">Письмо на почту</option>
+                            </select>
+                        </div>
+
+                        <!-- Комментарий -->
+                        <div>
+                            <label for="opt-comment" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Комментарий</label>
+                            <textarea id="opt-comment" rows="4" placeholder="Интересуют условия для сети аптек..." class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm resize-none"></textarea>
+                        </div>
+
+                        <!-- Кнопка -->
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-dark text-white py-4 font-bold uppercase tracking-widest rounded-sm hover:bg-brand-green transition-colors flex justify-center items-center">
+                            Отправить заявку
+                        </button>
+                        
+                        <p id="form-status" class="text-sm text-center hidden font-medium mt-4"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
+        <div class="container mx-auto px-4">
+            <p>2026 Debavit.kz</p>
+        </div>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ ОСНОВНОГО APP.JS ДЛЯ МЕНЮ -->
+    <script src="./assets/js/app.js"></script>
+
+    <!-- ЛОГИКА ОТПРАВКИ В TELEGRAM -->
+    <script>
+        document.getElementById('wholesale-form').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Останавливаем перезагрузку страницы
+            
+            const btn = document.getElementById('submit-btn');
+            const statusText = document.getElementById('form-status');
+            
+            // ВСТАВЬ СВОИ ДАННЫЕ СЮДА
+            const botToken = 'ТВОЙ_ТОКЕН_БОТА'; 
+            const chatId = 'ТВОЙ_ID_ГРУППЫ'; // Не забудь минус, если это группа (например, -10012345678)
+
+            // Собираем данные
+            const name = document.getElementById('opt-name').value;
+            const contact = document.getElementById('opt-contact').value;
+            const method = document.getElementById('opt-method').value;
+            const comment = document.getElementById('opt-comment').value || 'Без комментариев';
+
+            // Формируем красивое сообщение для Telegram
+            const message = `📦 *Новая заявка на ОПТ*\n\n👤 *ФИО/Компания:* ${name}\n📞 *Контакт:* ${contact}\n💬 *Связь через:* ${method}\n\n📝 *Комментарий:* ${comment}`;
+
+            // Меняем состояние кнопки
+            btn.textContent = 'Отправка...';
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                if (response.ok) {
+                    statusText.textContent = 'Заявка успешно отправлена! Мы свяжемся с вами.';
+                    statusText.className = 'text-sm text-center block mt-4 text-brand-green font-bold';
+                    this.reset(); // Очищаем форму
+                } else {
+                    throw new Error('Ошибка сервера Telegram');
+                }
+            } catch (error) {
+                statusText.textContent = 'Произошла ошибка сети. Попробуйте написать нам в WhatsApp.';
+                statusText.className = 'text-sm text-center block mt-4 text-red-500 font-bold';
+            } finally {
+                // Возвращаем кнопку в исходное состояние через 3 секунды
+                setTimeout(() => {
+                    btn.textContent = 'Отправить заявку';
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
