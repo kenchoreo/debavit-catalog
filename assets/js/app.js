@@ -315,13 +315,35 @@ const menuCloseBtn = document.getElementById('menu-close');
 const mobileMenu = document.getElementById('mobile-menu');
 
 function toggleMenu() {
-    if(!mobileMenu) return;
-    mobileMenu.classList.toggle('hidden');
-    mobileMenu.classList.toggle('flex');
+    if (!mobileMenu) return;
+    
+    // Проверяем, какой тип верстки используется на текущей странице
+    if (mobileMenu.classList.contains('translate-x-full') || mobileMenu.classList.contains('transition-transform')) {
+        // Старый вариант (с выезжающим сбоку меню)
+        mobileMenu.classList.toggle('translate-x-full');
+    } else {
+        // Новый вариант (простое скрытие/показ)
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+    }
+    
+    // Блокируем скролл сайта
     document.body.classList.toggle('overflow-hidden');
 }
 
-if(menuOpenBtn && menuCloseBtn) {
-    menuOpenBtn.addEventListener('click', toggleMenu);
-    menuCloseBtn.addEventListener('click', toggleMenu);
+// Вешаем события независимо (если есть только одна кнопка, она все равно будет работать)
+if (menuOpenBtn) menuOpenBtn.addEventListener('click', toggleMenu);
+if (menuCloseBtn) menuCloseBtn.addEventListener('click', toggleMenu);
+
+// Закрываем меню при клике на любую ссылку внутри него
+if (mobileMenu) {
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Если меню открыто — закрываем его
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.classList.contains('translate-x-full')) {
+                toggleMenu();
+            }
+        });
+    });
 }
