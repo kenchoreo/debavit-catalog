@@ -58,3 +58,23 @@ collections:
                     name: "source"
                     widget: "select"
                     options: ["Kaspi", "Wildberries"]
+                    
+- name: "news_promos"
+    label: "Новости и Акции"
+    files:
+      - label: "Список новостей и акций"
+        name: "news"
+        file: "assets/data/news.json" # Данные будут сохраняться сюда
+        fields:
+          - label: "Записи"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "ID (на англ, без пробелов, например: promo-1)", name: "id", widget: "string"}
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Тип", name: "type", widget: "select", options: ["Новость", "Акция"]}
+              - {label: "Баннер для главной (горизонтальный, появится в карусели, если загружен)", name: "banner_image", widget: "image", required: false}
+              - {label: "Главное изображение (для страницы самой новости)", name: "main_image", widget: "image"}
+              - {label: "Текст (поддерживает переносы)", name: "content", widget: "text"}
+              - {label: "Текст кнопки (опционально)", name: "btn_text", widget: "string", required: false}
+              - {label: "Ссылка кнопки (опционально)", name: "btn_link", widget: "string", required: false}
