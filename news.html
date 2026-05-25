@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости и Акции — Debavit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { 'brand-green': '#5d7159', 'brand-dark': '#0d0d0d' }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Oswald', 'sans-serif'] } } }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <main class="py-16 md:py-24 flex-grow">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h1 class="font-heading text-4xl md:text-6xl font-bold uppercase text-brand-dark tracking-tighter mb-16">Наши события</h1>
+
+            <div class="mb-20">
+                <h2 class="font-heading text-2xl uppercase tracking-tighter mb-8 text-brand-green border-b border-gray-100 pb-4">Текущие акции</h2>
+                <div id="promos-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+            </div>
+
+            <div>
+                <h2 class="font-heading text-2xl uppercase tracking-tighter mb-8 text-brand-dark border-b border-gray-100 pb-4">Свежие новости</h2>
+                <div id="news-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
