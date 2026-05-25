@@ -347,3 +347,101 @@ if (mobileMenu) {
         });
     });
 }
+
+// --- ЛОГИКА НОВОСТЕЙ И АКЦИЙ ---
+document.addEventListener('DOMContentLoaded', async () => {
+    let newsItems = [];
+    const getImgPath = (path) => path && !path.startsWith('http') ? (path.startsWith('.') ? path : `./${path}`) : path;
+
+    try {
+        const response = await fetch('./assets/data/news.json');
+        if (response.ok) {
+            const data = await response.json();
+            newsItems = data.items || [];
+        }
+    } catch (error) {
+        console.log("Нет новостей для загрузки.");
+    }
+
+    if (newsItems.length === 0) return;
+
+    // 1. Карусель на ГЛАВНОЙ (index.html)
+    const carouselContainer = document.getElementById('promo-carousel');
+    const carouselSection = document.getElementById('promo-carousel-section');
+    if (carouselContainer && carouselSection) {
+        // Берем только те записи, у которых загружен баннер
+        const bannerItems = newsItems.filter(item => item.banner_image);
+        
+        if (bannerItems.length > 0) {
+            carouselSection.classList.remove('hidden'); // Показываем секцию
+            bannerItems.forEach(item => {
+                const bannerHTML = `
+                    <a href="article.html?id=${item.id}" class="block snap-center shrink-0 w-[85%] md:w-[60%] lg:w-[40%] aspect-[21/9] md:aspect-[3/1] bg-gray-200 rounded-sm overflow-hidden relative group">
+                        <img src="${getImgPath(item.banner_image)}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white">
+                            <span class="text-[10px] uppercase tracking-widest font-bold bg-brand-green px-2 py-1 rounded-sm">${item.type}</span>
+                        </div>
+                    </a>
+                `;
+                carouselContainer.innerHTML += bannerHTML;
+            });
+        }
+    }
+
+    // 2. Страница КАТАЛОГА (news.html)
+    const newsGrid = document.getElementById('news-grid');
+    const promosGrid = document.getElementById('promos-grid');
+    
+    if (newsGrid || promosGrid) {
+        // Функция для создания карточки
+        const createCard = (item) => `
+            <a href="article.html?id=${item.id}" class="group block bg-gray-50 border border-gray-100 p-4 rounded-sm hover:shadow-lg transition-all">
+                <div class="aspect-[16/9] bg-gray-200 mb-4 overflow-hidden rounded-sm">
+                    <img src="${getImgPath(item.main_image)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="text-[10px] text-brand-green font-bold uppercase tracking-widest mb-2">${item.type}</div>
+                <h3 class="font-heading text-xl uppercase text-brand-dark leading-tight group-hover:text-brand-green transition">${item.title}</h3>
+            </a>
+        `;
+
+        const news = newsItems.filter(i => i.type === 'Новость');
+        const promos = newsItems.filter(i => i.type === 'Акция');
+
+        if (newsGrid) newsGrid.innerHTML = news.length ? news.map(createCard).join('') : '<p class="text-gray-400 text-sm">Новостей пока нет.</p>';
+        if (promosGrid) promosGrid.innerHTML = promos.length ? promos.map(createCard).join('') : '<p class="text-gray-400 text-sm">Акций пока нет.</p>';
+    }
+
+    // 3. Страница СТАТЬИ (article.html)
+    const articleTitle = document.getElementById('article-title');
+    if (articleTitle) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        const article = newsItems.find(a => a.id === articleId);
+
+        if (article) {
+            document.title = `${article.title} — Debavit`;
+            articleTitle.textContent = article.title;
+            document.getElementById('article-badge').textContent = article.type;
+            
+            if (article.main_image) {
+                document.getElementById('article-image').src = getImgPath(article.main_image);
+                document.getElementById('article-img-container').classList.remove('hidden');
+            }
+
+            document.getElementById('article-content').innerHTML = (article.content || '').replace(/\n/g, '<br>');
+
+            // Если есть кнопка
+            if (article.btn_text && article.btn_link) {
+                const btn = document.getElementById('article-btn');
+                btn.textContent = article.btn_text;
+                btn.href = article.btn_link;
+                btn.classList.remove('hidden');
+            }
+        } else {
+            articleTitle.textContent = "Публикация не найдена";
+            document.getElementById('article-content').textContent = "Пожалуйста, вернитесь в раздел новостей.";
+            document.getElementById('article-badge').classList.add('hidden');
+        }
+    }
+});
