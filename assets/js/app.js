@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Генерация полноэкранных баннеров
             bannerItems.forEach(item => {
                 const bannerHTML = `
-                    <a href="article.html?id=${item.id}" class="block snap-center shrink-0 w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[10/3] bg-gray-100 overflow-hidden relative">
+                    <a href="article.html?id=${item.id}" class="block snap-center shrink-0 w-full h-[180px] md:h-[450px] lg:h-[600px] bg-gray-100 overflow-hidden relative">
                         <img src="${getImgPath(item.banner_image)}" alt="${item.title}" class="w-full h-full object-cover">
                     </a>
                 `;
