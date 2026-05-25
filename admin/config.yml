@@ -59,7 +59,7 @@ collections:
                     widget: "select"
                     options: ["Kaspi", "Wildberries"]
                     
-- name: "news_promos"
+  - name: "news_promos"
     label: "Новости и Акции"
     files:
       - label: "Список новостей и акций"
