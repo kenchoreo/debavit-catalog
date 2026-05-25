@@ -368,24 +368,76 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 1. Карусель на ГЛАВНОЙ (index.html)
     const carouselContainer = document.getElementById('promo-carousel');
     const carouselSection = document.getElementById('promo-carousel-section');
+    
     if (carouselContainer && carouselSection) {
-        // Берем только те записи, у которых загружен баннер
         const bannerItems = newsItems.filter(item => item.banner_image);
         
         if (bannerItems.length > 0) {
-            carouselSection.classList.remove('hidden'); // Показываем секцию
+            carouselSection.classList.remove('hidden'); 
+            
+            // Генерация полноэкранных баннеров
             bannerItems.forEach(item => {
                 const bannerHTML = `
-                    <a href="article.html?id=${item.id}" class="block snap-center shrink-0 w-[85%] md:w-[60%] lg:w-[40%] aspect-[21/9] md:aspect-[3/1] bg-gray-200 rounded-sm overflow-hidden relative group">
-                        <img src="${getImgPath(item.banner_image)}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <span class="text-[10px] uppercase tracking-widest font-bold bg-brand-green px-2 py-1 rounded-sm">${item.type}</span>
-                        </div>
+                    <a href="article.html?id=${item.id}" class="block snap-center shrink-0 w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[10/3] bg-gray-100 overflow-hidden relative">
+                        <img src="${getImgPath(item.banner_image)}" alt="${item.title}" class="w-full h-full object-cover">
                     </a>
                 `;
                 carouselContainer.innerHTML += bannerHTML;
             });
+
+            // --- ЛОГИКА ПЕРЕЛИСТЫВАНИЯ ---
+            const nextBtn = document.getElementById('next-slide');
+            const prevBtn = document.getElementById('prev-slide');
+            let currentSlide = 0;
+            const totalSlides = bannerItems.length;
+            let slideInterval;
+
+            const goToSlide = (index) => {
+                if (index >= totalSlides) index = 0; // Возврат в начало
+                if (index < 0) index = totalSlides - 1; // Переход в конец
+                currentSlide = index;
+                
+                // Прокручиваем контейнер на ширину одного слайда
+                const slideWidth = carouselContainer.clientWidth;
+                carouselContainer.scrollTo({ left: slideWidth * currentSlide, behavior: 'smooth' });
+            };
+
+            // Если слайдов больше одного, включаем стрелки и автопрокрутку
+            if (totalSlides > 1) {
+                if (nextBtn && prevBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        goToSlide(currentSlide + 1);
+                        resetInterval();
+                    });
+                    prevBtn.addEventListener('click', () => {
+                        goToSlide(currentSlide - 1);
+                        resetInterval();
+                    });
+                }
+
+                // Автоматическое перелистывание каждые 5 секунд (5000 мс)
+                const startInterval = () => {
+                    slideInterval = setInterval(() => {
+                        goToSlide(currentSlide + 1);
+                    }, 5000);
+                };
+
+                const resetInterval = () => {
+                    clearInterval(slideInterval);
+                    startInterval();
+                };
+
+                startInterval();
+
+                // Останавливаем автопрокрутку, если мышка наведена на баннер
+                carouselSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
+                carouselSection.addEventListener('mouseleave', startInterval);
+                
+            } else {
+                // Если баннер всего один — прячем стрелки
+                if(nextBtn) nextBtn.classList.add('hidden');
+                if(prevBtn) prevBtn.classList.add('hidden');
+            }
         }
     }
 
