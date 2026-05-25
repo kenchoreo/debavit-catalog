@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Публикация — Debavit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { 'brand-green': '#5d7159', 'brand-dark': '#0d0d0d' }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Oswald', 'sans-serif'] } } }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+    <main class="py-16 md:py-20 flex-grow bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white shadow-sm border border-gray-100 p-6 md:p-12 rounded-sm">
+                <div class="mb-8">
+                    <span id="article-badge" class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-green bg-[#5d7159]/10 rounded-sm mb-4">Загрузка...</span>
+                    <h1 id="article-title" class="font-heading text-3xl md:text-5xl font-bold uppercase text-brand-dark leading-tight tracking-tighter">
+                        Загрузка заголовка...
+                    </h1>
+                </div>
+
+                <div class="aspect-[16/9] w-full bg-gray-100 mb-10 overflow-hidden rounded-sm hidden" id="article-img-container">
+                    <img id="article-image" src="" alt="Иллюстрация" class="w-full h-full object-cover">
+                </div>
+
+                <div id="article-content" class="prose prose-sm md:prose-base text-gray-600 font-light leading-relaxed mb-10">
+                    Загрузка текста...
+                </div>
+
+                <a id="article-btn" href="#" target="_blank" class="hidden inline-block bg-brand-dark text-white px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-brand-green transition-colors rounded-sm text-center">
+                    Действие
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
