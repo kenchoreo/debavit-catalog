@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "lot": "MTB1125",
+      "product": "5-MTHF+B12",
+      "exp": "11.2028"
+    },
+    {
+      "lot": "MTH0923",
+      "product": "5-MTHF+B12",
+      "exp": "09.2026"
+    },
+    {
+      "lot": "1125263",
+      "product": "Astaxanthin & Pine Bark",
+      "exp": "11.2029"
+    },
+    {
+      "lot": "0126030",
+      "product": "Betaine HCL & Pepsin",
+      "exp": "01.2030"
+    },
+    {
+      "lot": "0525204",
+      "product": "Biotin & Calcium",
+      "exp": "05.2028"
+    },
+    {
+      "lot": "1024154",
+      "product": "Chromium + Niacin",
+      "exp": "10.2027"
+    },
+    {
+      "lot": "RVR0825",
+      "product": "Resveratrol & NMN",
+      "exp": "08.2028"
+    },
+    {
+      "lot": "0126068",
+      "product": "Tribulus Terrestris",
+      "exp": "01.2030"
+    }
+  ]
+}
