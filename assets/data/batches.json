@@ -1,44 +1,56 @@
 {
   "items": [
-    {
-      "lot": "MTB1125",
-      "product": "5-MTHF+B12",
-      "exp": "11.2028"
-    },
-    {
-      "lot": "MTH0923",
-      "product": "5-MTHF+B12",
-      "exp": "09.2026"
-    },
-    {
-      "lot": "1125263",
-      "product": "Astaxanthin & Pine Bark",
-      "exp": "11.2029"
-    },
-    {
-      "lot": "0126030",
-      "product": "Betaine HCL & Pepsin",
-      "exp": "01.2030"
-    },
-    {
-      "lot": "0525204",
-      "product": "Biotin & Calcium",
-      "exp": "05.2028"
-    },
-    {
-      "lot": "1024154",
-      "product": "Chromium + Niacin",
-      "exp": "10.2027"
-    },
-    {
-      "lot": "RVR0825",
-      "product": "Resveratrol & NMN",
-      "exp": "08.2028"
-    },
-    {
-      "lot": "0126068",
-      "product": "Tribulus Terrestris",
-      "exp": "01.2030"
-    }
+    { "lot": "MTB1125", "product": "5-MTHF+B12", "exp": "11.2028" },
+    { "lot": "MTH0923", "product": "5-MTHF+B12", "exp": "09.2026" },
+    { "lot": "1125263", "product": "Astaxanthin & Pine Bark", "exp": "11.2029" },
+    { "lot": "0126030", "product": "Betaine HCL & Pepsin", "exp": "01.2030" },
+    { "lot": "0525204", "product": "Biotin & Calcium", "exp": "05.2028" },
+    { "lot": "1024154", "product": "Chromium + Niacin", "exp": "10.2027" },
+    { "lot": "0523154", "product": "Chromium + Niacin", "exp": "05.2026" },
+    { "lot": "0324062", "product": "Coenzyme Q10 & Cofactors", "exp": "03.2027" },
+    { "lot": "C04C040524", "product": "Curcumin + Bioperine", "exp": "05.2027" },
+    { "lot": "0825208", "product": "D3 + K2 & Calcium", "exp": "05.2028" },
+    { "lot": "0525202", "product": "D3+K2", "exp": "05.2028" },
+    { "lot": "0428095", "product": "Debavit Enzymes Power 90 capsules", "exp": "04.2029" },
+    { "lot": "GIC1025", "product": "Gentle Iron & Cofactors", "exp": "10.2028" },
+    { "lot": "0126025", "product": "Gentle Iron & Cofactors", "exp": "01.2030" },
+    { "lot": "0525209", "product": "Gentle Zinc + Vitamin A", "exp": "05.2028" },
+    { "lot": "1024213", "product": "Glucosamine chondroitin & MSM", "exp": "10.2027" },
+    { "lot": "GRW1025", "product": "Glutathione & Red Wine Extract", "exp": "10.2028" },
+    { "lot": "KOA1025", "product": "Krill Oil & Astaxanthin", "exp": "10.2028" },
+    { "lot": "0426142", "product": "Lactoferrin & Colostrum", "exp": "04.2029" },
+    { "lot": "0126021", "product": "Lecithin & Silymarin 120 cap", "exp": "01.2030" },
+    { "lot": "1125260", "product": "Liposomal Magnesium 90", "exp": "11.2029" },
+    { "lot": "1225291", "product": "Liposomal Melatonin&GABA", "exp": "12.2028" },
+    { "lot": "0326092", "product": "Liposomal Q10+PQQ", "exp": "03.2029" },
+    { "lot": "LZB1025", "product": "LUTEIN+ZEAZANTHIN &BLUEBERRY", "exp": "10.2028" },
+    { "lot": "D01TO11025", "product": "Magnesium B6", "exp": "10.2028" },
+    { "lot": "0126027", "product": "Monoluarin &L-Lysine", "exp": "01.2030" },
+    { "lot": "1125261", "product": "Multi vitamin complex for women", "exp": "11.2029" },
+    { "lot": "0126019", "product": "Multi vitamin complex for women", "exp": "01.2030" },
+    { "lot": "D01T031025", "product": "MultiVitamin Complex for Men", "exp": "10.2028" },
+    { "lot": "0126018", "product": "MultiVitamin Complex for Men", "exp": "01.2030" },
+    { "lot": "0428101", "product": "Multivitamins for kids", "exp": "04.2029" },
+    { "lot": "1225276", "product": "Omega-3 (100 capsules)", "exp": "12.2029" },
+    { "lot": "1125267", "product": "PHOSPHATIDYLSERINE &GINKGOBILOBA", "exp": "11.2029" },
+    { "lot": "PRG1025", "product": "Primrose&GLA 90 softgels", "exp": "10.2028" },
+    { "lot": "0126028", "product": "Probiotic", "exp": "01.2030" },
+    { "lot": "C04C020524", "product": "R-alpha Lipoic Acid", "exp": "05.2027" },
+    { "lot": "0126026", "product": "R-alpha Lipoic Acid", "exp": "01.2030" },
+    { "lot": "RVR0825", "product": "Resveratrol & NMN", "exp": "08.2028" },
+    { "lot": "1224303", "product": "SILICON+BIOPERINE", "exp": "01.2028" },
+    { "lot": "D01C011025", "product": "SILICON+BIOPERINE", "exp": "10.2028" },
+    { "lot": "0126017", "product": "Sleapebears", "exp": "01.2029" },
+    { "lot": "0126068", "product": "Tribulus Terrestris", "exp": "01.2030" },
+    { "lot": "0525207", "product": "Vitamin C & Cofactors", "exp": "05.2028" },
+    { "lot": "1125265", "product": "Vitamin D3 5000 mg", "exp": "11.2029" },
+    { "lot": "0126022", "product": "Vitamin D3+K2 Spray", "exp": "01.2029" },
+    { "lot": "0525206", "product": "Vitamin E + Vit C 90 tab", "exp": "05.2028" },
+    { "lot": "0324063", "product": "B Complex", "exp": "03.2027" },
+    { "lot": "1024202", "product": "Kelp, Potassium Iodine & Selenium", "exp": "10.2027" },
+    { "lot": "1024204", "product": "Calcium+Vitamin K2", "exp": "10.2027" },
+    { "lot": "1024201", "product": "Hair, Nail & Skin", "exp": "10.2027" },
+    { "lot": "D01L020125", "product": "Омега сироп", "exp": "01.2027" },
+    { "lot": "D011010125", "product": "Фосфадитил сироп", "exp": "01.2027" }
   ]
 }
