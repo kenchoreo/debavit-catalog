@@ -134,26 +134,28 @@
     </section>
 
     <!-- КАТАЛОГ ТОВАРОВ -->
-    <section class="py-16 md:py-24 bg-white flex-grow" id="popular">
+    <section class="py-16 md:py-24 bg-white flex-grow" id="catalog-section">
         <div class="container mx-auto max-w-7xl px-4">
             
-            <div class="flex justify-between items-end mb-10 md:mb-12">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-gray-100 pb-8">
                 <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase text-brand-dark leading-none tracking-tighter">
                     Каталог товаров
                 </h2>
-                <a href="catalog.html" class="hidden md:block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-900 transition-all rounded-sm">
-                    Смотреть все
-                </a>
+                
+                <div class="relative w-full md:max-w-md">
+                    <input type="text" id="catalog-search" placeholder="Поиск нутрицевтика..." class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm font-light">
+                    <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                </div>
             </div>
 
-            <!-- Сетка товаров (заполняется через app.js) -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8" id="popular-products-grid">
-            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8" id="main-catalog-grid">
+                </div>
 
-            <div class="mt-12 md:hidden">
-                <a href="catalog.html" class="w-full block bg-black text-white py-4 text-center text-sm font-bold uppercase tracking-[0.2em] rounded-sm shadow-md">
-                    Смотреть все
-                </a>
+            <div id="catalog-sentinel" class="w-full flex justify-center items-center py-12 mt-8 min-h-[64px]">
+                <div id="catalog-loader" class="hidden w-6 h-6 border-2 border-brand-green border-t-transparent rounded-full animate-spin"></div>
+                <p id="catalog-end-message" class="hidden text-sm text-gray-400 font-light tracking-wide">Вы просмотрели все доступные товары</p>
             </div>
 
         </div>
