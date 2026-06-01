@@ -45,23 +45,23 @@
         </a>
         
         <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-            <a href="index.html" class="hover:text-black transition">Каталог</a>
-            <a href="about.html" class="hover:text-black transition">О нас</a>
-            <a href="verify.html" class="hover:text-black transition">Проверка партии</a>
-            <a href="news.html" class="hover:text-black transition">Новости</a>
-            <a href="opt.html" class="hover:text-black transition">Оптовым клиентам</a>
-            <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+            <a href="index.html" class="hover:text-black transition" data-i18n="menu-catalog">Каталог</a>
+            <a href="about.html" class="hover:text-black transition" data-i18n="menu-about">О нас</a>
+            <a href="verify.html" class="hover:text-black transition" data-i18n="menu-verify">Проверка партии</a>
+            <a href="news.html" class="hover:text-black transition" data-i18n="menu-news">Новости</a>
+            <a href="opt.html" class="hover:text-black transition" data-i18n="menu-opt">Оптовым клиентам</a>
+            <a href="contacts.html" class="hover:text-black transition" data-i18n="menu-contacts">Контакты</a>
         </div>
         
         <div class="flex items-center space-x-4 md:space-x-6">
             <!-- Переключатель языка -->
             <div class="hidden md:flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-            <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
-            <span class="text-gray-300">/</span>
-            <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
+                <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
+                <span class="text-gray-300">/</span>
+                <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
             </div>
             <a href="tel:+77002221780" class="text-sm font-semibold hidden lg:block">+7 700 222 17 80</a>
-            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
+            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm" data-i18n="btn-contact">Связаться</a>
             <button id="menu-open" class="md:hidden p-2 text-brand-dark focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
             </button>
@@ -77,9 +77,9 @@
             <div class="flex items-center space-x-4">
                 <!-- Переключатель языка для мобильных -->
                 <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-                <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
-                <span class="text-gray-300">/</span>
-                <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
+                    <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
+                    <span class="text-gray-300">/</span>
+                    <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
                 </div>
                 <button id="menu-close" class="p-2 text-brand-dark">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -89,36 +89,35 @@
 
         <div class="flex flex-col h-full px-6 pt-12 pb-16 justify-between overflow-y-auto">
             <div class="flex flex-col space-y-6">
-                <a href="index.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Каталог</a>
-                <a href="about.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">О нас</a>
-                <a href="verify.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Проверка партии</a>
-                <a href="news.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Новости</a>
-                <a href="opt.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Оптовым клиентам</a>
-                <a href="contacts.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Контакты</a>
+                <a href="index.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-catalog">Каталог</a>
+                <a href="about.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-about">О нас</a>
+                <a href="verify.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-verify">Проверка партии</a>
+                <a href="news.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-news">Новости</a>
+                <a href="opt.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-opt">Оптовым клиентам</a>
+                <a href="contacts.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-contacts">Контакты</a>
             </div>
             <div class="space-y-6 mt-10">
                 <div class="flex flex-col space-y-2">
-                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold">Связаться с нами</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold" data-i18n="menu-contacts">Контакты</p>
                     <a href="tel:+77002221780" class="text-2xl font-medium">+7 700 222 17 80</a>
                     <div class="flex space-x-6 pt-2">
                         <a href="https://instagram.com/debavit_official.kz" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">Instagram</a>
                         <a href="https://wa.me/77002221780" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">WhatsApp</a>
                     </div>
                 </div>
-                <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg">Заказать консультацию</a>
+                <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg" data-i18n="btn-consultation">Заказать консультацию</a>
             </div>
         </div>
     </div>
+
     <main class="py-10 md:py-16 flex-grow" id="main-content">
         <div class="container mx-auto max-w-7xl px-4">
             
             <!-- Хлебные крошки -->
             <div class="mb-8 text-xs font-medium text-gray-400 tracking-wider uppercase">
-                <a href="index.html" class="hover:text-black transition">Главная</a> 
+                <a href="index.html" class="hover:text-black transition" data-i18n="menu-catalog">Каталог</a> 
                 <span class="mx-2">/</span> 
-                <a href="catalog.html" class="hover:text-black transition">Каталог</a> 
-                <span class="mx-2">/</span> 
-                <span id="breadcrumb-name" class="text-black">Загрузка...</span>
+                <span id="breadcrumb-name" class="text-black" data-i18n="loading">Загрузка...</span>
             </div>
 
             <!-- Блок с фото и инфо товара -->
@@ -141,31 +140,31 @@
 
                 <!-- Правая колонка: Инфо -->
                 <div class="md:w-1/2 flex flex-col">
-                    <h1 id="product-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-brand-dark leading-none tracking-tighter mb-8">
+                    <h1 id="product-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-brand-dark leading-none tracking-tighter mb-8" data-i18n="loading-title">
                         Загрузка названия...
                     </h1>
 
                     <div class="mb-10">
-                        <a id="order-btn" href="#" target="_blank" class="w-full md:w-auto inline-flex bg-brand-green text-white px-10 py-5 text-sm font-bold uppercase tracking-widest justify-center items-center hover:opacity-90 transition-all rounded-sm shadow-xl">
+                        <a id="order-btn" href="#" target="_blank" class="w-full md:w-auto inline-flex bg-[#5d7159] text-white px-10 py-5 text-sm font-bold uppercase tracking-widest justify-center items-center hover:opacity-90 transition-all rounded-sm shadow-xl">
                             <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.405.314.159.386.541 1.32.588 1.416.048.096.079.208.014.332-.065.125-.111.192-.222.327-.11.135-.233.303-.332.405-.11.114-.227.238-.098.46.129.223.571.942 1.226 1.525.844.75 1.557.984 1.774 1.073.217.09.346.076.476-.072.129-.148.556-.647.705-.868.149-.222.299-.187.505-.111s1.303.614 1.527.726c.224.111.374.166.429.259.055.093.055.539-.089.944z"/>
                             </svg>
-                            Заказать через WhatsApp
+                            <span data-i18n="btn-order-wa">Заказать через WhatsApp</span>
                         </a>
-                        <p class="text-xs text-gray-400 mt-3">* Менеджер проконсультирует вас по наличию и доставке</p>
+                        <p class="text-xs text-gray-400 mt-3" data-i18n="order-note">* Менеджер проконсультирует вас по наличию и доставке</p>
                     </div>
 
                     <div class="border-t border-gray-200">
                         <div class="py-6 border-b border-gray-200">
-                            <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4">Описание</h3>
-                            <div id="product-description" class="text-gray-600 text-sm md:text-base font-light leading-relaxed">
+                            <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4" data-i18n="product-desc-title">Описание</h3>
+                            <div id="product-description" class="text-gray-600 text-sm md:text-base font-light leading-relaxed" data-i18n="loading-text">
                                 Загрузка описания...
                             </div>
                         </div>
 
                         <div class="py-6 border-b border-gray-200">
-                            <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4">Состав</h3>
-                            <div id="product-composition" class="prose prose-sm md:prose-base text-gray-600 font-light prose-ul:pl-0">
+                            <h3 class="font-heading text-xl uppercase tracking-wide text-brand-dark mb-4" data-i18n="product-comp-title">Состав</h3>
+                            <div id="product-composition" class="prose prose-sm md:prose-base text-gray-600 font-light prose-ul:pl-0" data-i18n="loading-text">
                                 Загрузка состава...
                             </div>
                         </div>
@@ -178,7 +177,7 @@
             <div id="reviews-section" class="mt-16 pt-16 border-t border-gray-200 hidden">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
                     <div>
-                        <h2 class="font-heading text-3xl md:text-4xl font-bold uppercase text-brand-dark mb-4 tracking-tighter">Отзывы покупателей</h2>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold uppercase text-brand-dark mb-4 tracking-tighter" data-i18n="reviews-title">Отзывы покупателей</h2>
                         
                         <div id="marketplaces-rating" class="flex flex-wrap gap-4 hidden">
                             <a id="kaspi-badge" href="#" target="_blank" class="hidden flex items-center bg-[#f14635]/10 text-[#f14635] px-4 py-2 rounded-sm hover:bg-[#f14635]/20 transition">
@@ -199,6 +198,7 @@
                     </div>
                     
                     <div id="all-reviews-links" class="flex flex-col sm:flex-row gap-3 hidden">
+                        <!-- Кнопки отзывов генерируются в JS -->
                     </div>
                 </div>
 
@@ -227,20 +227,20 @@
     <section class="py-16">
         <div class="container mx-auto max-w-7xl px-4">
             <div class="flex justify-between items-end mb-10">
-                <h2 class="font-heading text-2xl md:text-3xl uppercase font-bold text-brand-dark">Вам может понравиться</h2>
-                <a href="catalog.html" class="hidden md:block text-sm font-bold uppercase tracking-widest border-b-2 border-brand-green pb-1 hover:text-brand-green transition">Смотреть все</a>
+                <h2 class="font-heading text-2xl md:text-3xl uppercase font-bold text-brand-dark" data-i18n="rec-title">Вам может понравиться</h2>
+                <a href="index.html" class="hidden md:block text-sm font-bold uppercase tracking-widest border-b-2 border-brand-green pb-1 hover:text-brand-green transition" data-i18n="catalog-all">Смотреть все</a>
             </div>
             
             <div id="recommendations-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>
 
-            <a href="catalog.html" class="md:hidden w-full mt-8 inline-flex border border-gray-200 py-4 text-sm font-bold uppercase tracking-widest justify-center">Посмотреть всё</a>
+            <a href="index.html" class="md:hidden w-full mt-8 inline-flex border border-gray-200 py-4 text-sm font-bold uppercase tracking-widest justify-center" data-i18n="catalog-all">Посмотреть всё</a>
         </div>
     </section>
     
     <!-- Инстаграм -->
-    <section class="py-16 bg-white overflow-hidden">
+    <section class="py-16 bg-white overflow-hidden border-t border-gray-100">
         <div class="text-center mb-10">
-            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2">Подпишитесь на наш инстаграм</h2>
+            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2" data-i18n="insta-title">Подпишитесь на наш инстаграм</h2>
             <a href="https://instagram.com/debavit_official.kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@debavit_official.kz</a>
         </div>
         <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2 hide-scrollbar">
@@ -255,9 +255,9 @@
         </div>
     </section>
 
-    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400">
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
         <div class="container mx-auto px-4">
-            <p>2026 Debavit.kz</p>
+            <p data-i18n="footer-text">2026 Debavit.kz</p>
         </div>
     </footer>
 
