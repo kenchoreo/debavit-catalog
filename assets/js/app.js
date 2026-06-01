@@ -1,3 +1,97 @@
+// --- СИСТЕМА ЛОКАЛИЗАЦИИ (RU / KZ) ---
+let currentLang = localStorage.getItem('debavit_lang') || 'ru';
+
+// Словарь для статического интерфейса
+const langDictionary = {
+    ru: {
+        "menu-catalog": "Каталог",
+        "menu-about": "О нас",
+        "menu-verify": "Проверка партии",
+        "menu-news": "Новости",
+        "menu-opt": "Оптовым клиентам",
+        "menu-contacts": "Контакты",
+        "btn-contact": "Связаться",
+        "search-placeholder": "Поиск нутрицевтика...",
+        "catalog-title": "Каталог товаров",
+        "catalog-all": "Смотреть все",
+        "catalog-end": "Вы просмотрели все доступные товары",
+        "catalog-empty": "По вашему запросу ничего не найдено...",
+        "insta-title": "Подпишитесь на наш инстаграм",
+        "btn-more": "Подробнее",
+        "btn-consultation": "Заказать консультацию",
+        "footer-text": "2026 Debavit.kz"
+    },
+    kz: {
+        "menu-catalog": "Каталог",
+        "menu-about": "Біз туралы",
+        "menu-verify": "Партияны тексеру",
+        "menu-news": "Жаңалықтар",
+        "menu-opt": "Көтерме клиенттерге",
+        "menu-contacts": "Байланыс",
+        "btn-contact": "Байланысу",
+        "search-placeholder": "Нутрицевтикті іздеу...",
+        "catalog-title": "Тауарлар каталогы",
+        "catalog-all": "Барлығын көру",
+        "catalog-end": "Сіз барлық қолжетімді тауарларды қарадыңыз",
+        "catalog-empty": "Сіздің сұранысыңыз бойынша ештеңе табылмады...",
+        "insta-title": "Біздің Instagram-ға жазылыңыз",
+        "btn-more": "Толығырақ",
+        "btn-consultation": "Кеңес алу",
+        "footer-text": "2026 Debavit.kz"
+    }
+};
+
+// Функция перевода статического UI
+window.applyLanguageUI = function() {
+    // Подсветка кнопок языка
+    const activeClass = ['text-brand-dark', 'border-b-2', 'border-brand-green', 'pb-0.5'];
+    const inactiveClass = ['text-gray-400', 'hover:text-brand-dark'];
+
+    const updateBtnState = (ruId, kzId) => {
+        const ruBtn = document.getElementById(ruId);
+        const kzBtn = document.getElementById(kzId);
+        if (!ruBtn || !kzBtn) return;
+
+        if (currentLang === 'ru') {
+            ruBtn.classList.add(...activeClass); ruBtn.classList.remove(...inactiveClass);
+            kzBtn.classList.remove(...activeClass); kzBtn.classList.add(...inactiveClass);
+        } else {
+            kzBtn.classList.add(...activeClass); kzBtn.classList.remove(...inactiveClass);
+            ruBtn.classList.remove(...activeClass); ruBtn.classList.add(...inactiveClass);
+        }
+    };
+    
+    updateBtnState('lang-ru', 'lang-kz');
+    updateBtnState('lang-ru-mob', 'lang-kz-mob');
+
+    // Перевод текстов по атрибуту
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (langDictionary[currentLang][key]) {
+            if (el.tagName === 'INPUT') {
+                el.setAttribute('placeholder', langDictionary[currentLang][key]);
+            } else {
+                el.textContent = langDictionary[currentLang][key];
+            }
+        }
+    });
+};
+
+// Функция смены языка по клику
+window.setLanguage = function(lang) {
+    if (lang === currentLang) return;
+    localStorage.setItem('debavit_lang', lang);
+    currentLang = lang;
+    
+    applyLanguageUI();
+    document.dispatchEvent(new Event('LanguageChanged')); // Оповещаем другие скрипты о смене языка
+};
+
+// Выполняем при загрузке DOM
+document.addEventListener('DOMContentLoaded', () => {
+    applyLanguageUI();
+});
+
 // --- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ГАЛЕРЕИ ---
 let currentProductImages = [];
 let currentIndex = 0;
@@ -23,7 +117,7 @@ window.updateGalleryUI = function() {
     });
 };
 
-// Навигация галереи
+// Навигация
 window.nextImage = function(e) {
     if (e) e.stopPropagation();
     if (currentProductImages.length <= 1) return;
@@ -76,10 +170,18 @@ const getImgPath = (path) => {
     return path.startsWith('http') ? path : (path.startsWith('.') ? path : `./${path}`);
 };
 
+// --- Вспомогательная функция для перевода полей JSON ---
+const getLangField = (obj, field) => {
+    if (currentLang === 'kz' && obj[`${field}_kz`]) {
+        return obj[`${field}_kz`];
+    }
+    return obj[field];
+};
+
 // --- ЛОГИКА ЕДИНОГО КАТАЛОГА (ГЛАВНАЯ СТРАНИЦА) ---
 document.addEventListener('DOMContentLoaded', async () => {
     const grid = document.getElementById('main-catalog-grid');
-    if (!grid) return; // Выполняем только на главной странице
+    if (!grid) return; 
 
     let allProducts = [];
     let filteredProducts = [];
@@ -91,7 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const loader = document.getElementById('catalog-loader');
     const endMessage = document.getElementById('catalog-end-message');
 
-    // Шаг 1: Загрузка базы товаров
+    // Шаг 1: Загрузка базы
     try {
         const response = await fetch('./assets/data/products.json');
         if (response.ok) {
@@ -108,7 +210,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Ошибка инициализации каталога:", error);
     }
 
-    // Шаг 2: Отрисовка порции (Премиальные, полностью кликабельные карточки)
+    // Шаг 2: Отрисовка
     function renderNextBatch() {
         if (displayedCount >= filteredProducts.length) {
             hideLoader(true);
@@ -118,19 +220,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         hideLoader(false);
 
         const nextBatch = filteredProducts.slice(displayedCount, displayedCount + ITEMS_PER_PAGE);
+        const btnText = langDictionary[currentLang]['btn-more'];
         
         let htmlBuffer = '';
         nextBatch.forEach(product => {
+            const displayTitle = getLangField(product, 'title');
+            
             htmlBuffer += `
                 <a href="product.html?id=${product.id}" class="group flex flex-col h-full bg-white border border-gray-100/80 rounded-xl p-3 md:p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 hover:border-brand-green/30 transition-all duration-300">
                     <div class="aspect-[4/5] bg-gray-50 mb-4 overflow-hidden relative rounded-lg">
-                        <img src="${getImgPath(product.image)}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="${getImgPath(product.image)}" alt="${displayTitle}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <h3 class="text-sm md:text-base font-semibold text-brand-dark mb-4 leading-snug flex-grow group-hover:text-brand-green transition-colors">
-                        ${product.title}
+                        ${displayTitle}
                     </h3>
                     <span class="inline-block w-full bg-gray-50 text-brand-dark px-4 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest group-hover:bg-brand-dark group-hover:text-white transition-all rounded-lg text-center mt-auto">
-                        Подробнее
+                        ${btnText}
                     </span>
                 </a>`;
         });
@@ -143,7 +248,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Шаг 3: Управление лоадером
+    // Шаг 3: Лоадер
     function hideLoader(isEnd) {
         if (isEnd) {
             if (loader) loader.classList.add('hidden');
@@ -171,14 +276,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         observer.observe(sentinel);
     }
 
-    // Шаг 5: Живой поиск
+    // Шаг 5: Живой поиск (учитывает текущий язык)
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             
             filteredProducts = allProducts.filter(product => {
-                const titleMatch = (product.title || '').toLowerCase().includes(query);
-                const descMatch = (product.description || '').toLowerCase().includes(query);
+                const titleMatch = getLangField(product, 'title').toLowerCase().includes(query);
+                const descMatch = (getLangField(product, 'description') || '').toLowerCase().includes(query);
                 return titleMatch || descMatch;
             });
 
@@ -186,7 +291,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             displayedCount = 0;
 
             if (filteredProducts.length === 0) {
-                grid.innerHTML = '<p class="text-gray-400 col-span-full text-center py-12 font-light">По вашему запросу ничего не найдено...</p>';
+                const emptyText = langDictionary[currentLang]['catalog-empty'];
+                grid.innerHTML = `<p class="text-gray-400 col-span-full text-center py-12 font-light">${emptyText}</p>`;
                 if (loader) loader.classList.add('hidden');
                 if (endMessage) endMessage.classList.add('hidden');
             } else {
@@ -194,6 +300,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+
+    // Ререндер при смене языка
+    document.addEventListener('LanguageChanged', () => {
+        grid.innerHTML = '';
+        displayedCount = 0;
+        // Восстанавливаем оригинальный массив для перерендера
+        filteredProducts = [...allProducts];
+        if (searchInput) searchInput.value = '';
+        renderNextBatch();
+    });
 });
 
 // --- СТРАНИЦА ОДНОГО ТОВАРА (product.html) ---
@@ -201,25 +317,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     const titleEl = document.getElementById('product-title');
     if (!titleEl) return; 
 
+    let currentProduct = null;
+    let productsList = [];
+
     try {
         const response = await fetch('./assets/data/products.json');
         if (response.ok) {
             const data = await response.json();
-            const products = data.items || [];
+            productsList = data.items || [];
             
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
-            const product = products.find(p => p.id === productId);
+            currentProduct = productsList.find(p => p.id === productId);
 
-            if (product) {
-                document.title = `${product.title} — Debavit`;
-                if (document.getElementById('breadcrumb-name')) {
-                    document.getElementById('breadcrumb-name').textContent = product.title;
-                }
-                titleEl.textContent = product.title;
+            if (currentProduct) {
+                renderProductDetails();
                 
                 // Инициализация галереи
-                currentProductImages = [product.image, product.image2, product.image3]
+                currentProductImages = [currentProduct.image, currentProduct.image2, currentProduct.image3]
                     .filter(img => img)
                     .map(img => getImgPath(img));
                 
@@ -239,129 +354,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     updateGalleryUI();
                 }
 
-                // Текстовые данные
-                if(document.getElementById('product-description')) {
-                    document.getElementById('product-description').innerHTML = (product.description || '').replace(/\n/g, '<br>');
-                }
-                if(document.getElementById('product-composition')) {
-                    document.getElementById('product-composition').innerHTML = (product.composition || '').replace(/\n/g, '<br>');
-                }
-
-                // WhatsApp
-                const waBtn = document.getElementById('order-btn');
-                if (waBtn) {
-                    const message = `Здравствуйте! Хочу заказать: ${product.title}`;
-                    waBtn.href = `https://wa.me/77002221780?text=${encodeURIComponent(message)}`;
-                }
-
-                // Отзывы и рейтинги
-                const reviewsSection = document.getElementById('reviews-section');
-                const marketplacesRating = document.getElementById('marketplaces-rating');
-                const allReviewsLinks = document.getElementById('all-reviews-links');
-                const reviewsGrid = document.getElementById('reviews-grid');
-
-                if (reviewsSection && marketplacesRating && allReviewsLinks && reviewsGrid) {
-                    let showReviewsSection = false;
-
-                    if (product.kaspi_rating || product.wb_rating) {
-                        marketplacesRating.classList.remove('hidden');
-                        showReviewsSection = true;
-
-                        if (product.kaspi_rating && product.kaspi_link) {
-                            const kaspiBadge = document.getElementById('kaspi-badge');
-                            const kaspiVal = document.getElementById('kaspi-rating-value');
-                            if (kaspiBadge && kaspiVal) {
-                                kaspiVal.textContent = product.kaspi_rating;
-                                kaspiBadge.href = product.kaspi_link;
-                                kaspiBadge.classList.remove('hidden');
-                                kaspiBadge.classList.add('inline-flex');
-                                
-                                allReviewsLinks.classList.remove('hidden');
-                                allReviewsLinks.innerHTML += `
-                                    <a href="${product.kaspi_link}" target="_blank" class="border border-[#f14635] text-[#f14635] px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#f14635] hover:text-white transition-all rounded-sm text-center">
-                                        Все отзывы на Kaspi
-                                    </a>
-                                `;
-                            }
-                        }
-
-                        if (product.wb_rating && product.wb_link) {
-                            const wbBadge = document.getElementById('wb-badge');
-                            const wbVal = document.getElementById('wb-rating-value');
-                            if (wbBadge && wbVal) {
-                                wbVal.textContent = product.wb_rating;
-                                wbBadge.href = product.wb_link;
-                                wbBadge.classList.remove('hidden');
-                                wbBadge.classList.add('inline-flex');
-
-                                allReviewsLinks.classList.remove('hidden');
-                                allReviewsLinks.innerHTML += `
-                                    <a href="${product.wb_link}" target="_blank" class="border border-[#cb11ab] text-[#cb11ab] px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#cb11ab] hover:text-white transition-all rounded-sm text-center">
-                                        Все отзывы на WB
-                                    </a>
-                                `;
-                            }
-                        }
-                    }
-
-                    if (product.reviews && product.reviews.length > 0) {
-                        showReviewsSection = true;
-                        reviewsGrid.innerHTML = ''; 
-
-                        const reviewsToShow = product.reviews.slice(0, 3);
-
-                        reviewsToShow.forEach(review => {
-                            let sourceColor = "bg-gray-100 text-gray-500";
-                            if (review.source === "Kaspi") sourceColor = "bg-[#f14635]/10 text-[#f14635]";
-                            if (review.source === "Wildberries") sourceColor = "bg-[#cb11ab]/10 text-[#cb11ab]";
-
-                            const reviewCard = document.createElement('div');
-                            reviewCard.className = "bg-gray-50 p-6 rounded-sm border border-gray-100 flex flex-col";
-                            reviewCard.innerHTML = `
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="font-bold text-brand-dark">${review.author || 'Гость'}</div>
-                                    <span class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm ${sourceColor}">${review.source || 'Отзыв'}</span>
-                                </div>
-                                <div class="flex text-[#FFB800] mb-4">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                </div>
-                                <p class="text-sm text-gray-600 font-light leading-relaxed flex-grow italic">"${review.text}"</p>
-                            `;
-                            reviewsGrid.appendChild(reviewCard);
-                        });
-                    }
-
-                    if (showReviewsSection) {
-                        reviewsSection.classList.remove('hidden');
-                    }
-                }
+                // Отзывы и рейтинги (остаются без изменений, не зависят от языка)
+                renderReviews(currentProduct);
                 
-                // Секция рекомендаций (Обновленные, полностью кликабельные карточки)
-                const recGrid = document.getElementById('recommendations-grid');
-                if (recGrid) {
-                    const otherProducts = products.filter(p => p.id !== productId);
-                    const selected = otherProducts.sort(() => 0.5 - Math.random()).slice(0, 4);
+                // Секция рекомендаций
+                renderRecommendations();
 
-                    recGrid.innerHTML = '';
-                    selected.forEach(item => {
-                        recGrid.innerHTML += `
-                            <a href="product.html?id=${item.id}" class="group flex flex-col h-full bg-white border border-gray-100/80 rounded-xl p-3 md:p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 hover:border-brand-green/30 transition-all duration-300">
-                                <div class="aspect-[4/5] bg-gray-50 mb-3 overflow-hidden relative rounded-lg">
-                                    <img src="${getImgPath(item.image)}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                                </div>
-                                <h3 class="text-sm md:text-base font-semibold text-brand-dark mb-4 leading-snug flex-grow group-hover:text-brand-green transition-colors">
-                                    ${item.title}
-                                </h3>
-                                <span class="inline-block w-full bg-gray-50 text-brand-dark px-4 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest group-hover:bg-brand-dark group-hover:text-white transition-all rounded-lg text-center mt-auto">
-                                    Подробнее
-                                </span>
-                            </a>`;
-                    });
-                }
             } else {
                 titleEl.textContent = "Товар не найден";
             }
@@ -372,6 +370,154 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error("Ошибка загрузки товара:", error);
     }
+
+    function renderProductDetails() {
+        if (!currentProduct) return;
+        const displayTitle = getLangField(currentProduct, 'title');
+        const displayDesc = getLangField(currentProduct, 'description');
+        const displayComp = getLangField(currentProduct, 'composition');
+
+        document.title = `${displayTitle} — Debavit`;
+        if (document.getElementById('breadcrumb-name')) {
+            document.getElementById('breadcrumb-name').textContent = displayTitle;
+        }
+        titleEl.textContent = displayTitle;
+
+        if(document.getElementById('product-description')) {
+            document.getElementById('product-description').innerHTML = (displayDesc || '').replace(/\n/g, '<br>');
+        }
+        if(document.getElementById('product-composition')) {
+            document.getElementById('product-composition').innerHTML = (displayComp || '').replace(/\n/g, '<br>');
+        }
+
+        // WhatsApp
+        const waBtn = document.getElementById('order-btn');
+        if (waBtn) {
+            const message = `Здравствуйте! Хочу заказать: ${displayTitle}`;
+            waBtn.href = `https://wa.me/77002221780?text=${encodeURIComponent(message)}`;
+        }
+    }
+
+    function renderRecommendations() {
+        const recGrid = document.getElementById('recommendations-grid');
+        if (!recGrid) return;
+
+        const otherProducts = productsList.filter(p => p.id !== currentProduct.id);
+        const selected = otherProducts.sort(() => 0.5 - Math.random()).slice(0, 4);
+        const btnText = langDictionary[currentLang]['btn-more'];
+
+        recGrid.innerHTML = '';
+        selected.forEach(item => {
+            const displayTitle = getLangField(item, 'title');
+            recGrid.innerHTML += `
+                <a href="product.html?id=${item.id}" class="group flex flex-col h-full bg-white border border-gray-100/80 rounded-xl p-3 md:p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 hover:border-brand-green/30 transition-all duration-300">
+                    <div class="aspect-[4/5] bg-gray-50 mb-3 overflow-hidden relative rounded-lg">
+                        <img src="${getImgPath(item.image)}" alt="${displayTitle}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-sm md:text-base font-semibold text-brand-dark mb-4 leading-snug flex-grow group-hover:text-brand-green transition-colors">
+                        ${displayTitle}
+                    </h3>
+                    <span class="inline-block w-full bg-gray-50 text-brand-dark px-4 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest group-hover:bg-brand-dark group-hover:text-white transition-all rounded-lg text-center mt-auto">
+                        ${btnText}
+                    </span>
+                </a>`;
+        });
+    }
+
+    function renderReviews(product) {
+        // Код рендера отзывов остается без изменений, 
+        // так как там в основном значки звезд и ссылки на внешние ресурсы
+        const reviewsSection = document.getElementById('reviews-section');
+        const marketplacesRating = document.getElementById('marketplaces-rating');
+        const allReviewsLinks = document.getElementById('all-reviews-links');
+        const reviewsGrid = document.getElementById('reviews-grid');
+
+        if (reviewsSection && marketplacesRating && allReviewsLinks && reviewsGrid) {
+            let showReviewsSection = false;
+
+            if (product.kaspi_rating || product.wb_rating) {
+                marketplacesRating.classList.remove('hidden');
+                showReviewsSection = true;
+
+                if (product.kaspi_rating && product.kaspi_link) {
+                    const kaspiBadge = document.getElementById('kaspi-badge');
+                    const kaspiVal = document.getElementById('kaspi-rating-value');
+                    if (kaspiBadge && kaspiVal) {
+                        kaspiVal.textContent = product.kaspi_rating;
+                        kaspiBadge.href = product.kaspi_link;
+                        kaspiBadge.classList.remove('hidden');
+                        kaspiBadge.classList.add('inline-flex');
+                        
+                        allReviewsLinks.classList.remove('hidden');
+                        allReviewsLinks.innerHTML += `
+                            <a href="${product.kaspi_link}" target="_blank" class="border border-[#f14635] text-[#f14635] px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#f14635] hover:text-white transition-all rounded-sm text-center">
+                                Все отзывы на Kaspi
+                            </a>
+                        `;
+                    }
+                }
+
+                if (product.wb_rating && product.wb_link) {
+                    const wbBadge = document.getElementById('wb-badge');
+                    const wbVal = document.getElementById('wb-rating-value');
+                    if (wbBadge && wbVal) {
+                        wbVal.textContent = product.wb_rating;
+                        wbBadge.href = product.wb_link;
+                        wbBadge.classList.remove('hidden');
+                        wbBadge.classList.add('inline-flex');
+
+                        allReviewsLinks.classList.remove('hidden');
+                        allReviewsLinks.innerHTML += `
+                            <a href="${product.wb_link}" target="_blank" class="border border-[#cb11ab] text-[#cb11ab] px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#cb11ab] hover:text-white transition-all rounded-sm text-center">
+                                Все отзывы на WB
+                            </a>
+                        `;
+                    }
+                }
+            }
+
+            if (product.reviews && product.reviews.length > 0) {
+                showReviewsSection = true;
+                reviewsGrid.innerHTML = ''; 
+
+                const reviewsToShow = product.reviews.slice(0, 3);
+
+                reviewsToShow.forEach(review => {
+                    let sourceColor = "bg-gray-100 text-gray-500";
+                    if (review.source === "Kaspi") sourceColor = "bg-[#f14635]/10 text-[#f14635]";
+                    if (review.source === "Wildberries") sourceColor = "bg-[#cb11ab]/10 text-[#cb11ab]";
+
+                    const reviewCard = document.createElement('div');
+                    reviewCard.className = "bg-gray-50 p-6 rounded-sm border border-gray-100 flex flex-col";
+                    reviewCard.innerHTML = `
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="font-bold text-brand-dark">${review.author || 'Гость'}</div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm ${sourceColor}">${review.source || 'Отзыв'}</span>
+                        </div>
+                        <div class="flex text-[#FFB800] mb-4">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-gray-600 font-light leading-relaxed flex-grow italic">"${review.text}"</p>
+                    `;
+                    reviewsGrid.appendChild(reviewCard);
+                });
+            }
+
+            if (showReviewsSection) {
+                reviewsSection.classList.remove('hidden');
+            }
+        }
+    }
+
+    // Ререндер при смене языка
+    document.addEventListener('LanguageChanged', () => {
+        renderProductDetails();
+        renderRecommendations();
+    });
 });
 
 // --- ЛОГИКА НОВОСТЕЙ И АКЦИЙ ---
@@ -401,9 +547,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             carouselSection.classList.remove('hidden'); 
             
             bannerItems.forEach(item => {
+                const displayTitle = getLangField(item, 'title');
                 const bannerHTML = `
                     <a href="article.html?id=${item.id}" class="block snap-center shrink-0 w-full h-[180px] md:h-[450px] lg:h-[600px] bg-gray-100 overflow-hidden relative">
-                        <img src="${getImgPath(item.banner_image)}" alt="${item.title}" class="w-full h-full object-cover">
+                        <img src="${getImgPath(item.banner_image)}" alt="${displayTitle}" class="w-full h-full object-cover">
                     </a>
                 `;
                 carouselContainer.innerHTML += bannerHTML;
@@ -449,55 +596,93 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newsGrid = document.getElementById('news-grid');
     const promosGrid = document.getElementById('promos-grid');
     
-    if (newsGrid || promosGrid) {
-        const createCard = (item) => `
+    function renderNewsGrids() {
+        if (!newsGrid && !promosGrid) return;
+
+        const createCard = (item) => {
+            const displayTitle = getLangField(item, 'title');
+            // Переводим тип бейджа
+            let typeTranslation = item.type;
+            if (currentLang === 'kz') {
+                if (item.type === 'Новость') typeTranslation = 'Жаңалық';
+                if (item.type === 'Акция') typeTranslation = 'Науқан';
+            }
+
+            return `
             <a href="article.html?id=${item.id}" class="group block bg-gray-50 border border-gray-100 p-4 rounded-sm hover:shadow-lg transition-all">
                 <div class="aspect-[16/9] bg-gray-200 mb-4 overflow-hidden rounded-sm">
                     <img src="${getImgPath(item.main_image)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="text-[10px] text-brand-green font-bold uppercase tracking-widest mb-2">${item.type}</div>
-                <h3 class="font-heading text-xl uppercase text-brand-dark leading-tight group-hover:text-brand-green transition">${item.title}</h3>
+                <div class="text-[10px] text-brand-green font-bold uppercase tracking-widest mb-2">${typeTranslation}</div>
+                <h3 class="font-heading text-xl uppercase text-brand-dark leading-tight group-hover:text-brand-green transition">${displayTitle}</h3>
             </a>
-        `;
+            `;
+        };
 
         const news = newsItems.filter(i => i.type === 'Новость');
         const promos = newsItems.filter(i => i.type === 'Акция');
 
-        if (newsGrid) newsGrid.innerHTML = news.length ? news.map(createCard).join('') : '<p class="text-gray-400 text-sm">Новостей пока нет.</p>';
-        if (promosGrid) promosGrid.innerHTML = promos.length ? promos.map(createCard).join('') : '<p class="text-gray-400 text-sm">Акций пока нет.</p>';
+        if (newsGrid) newsGrid.innerHTML = news.length ? news.map(createCard).join('') : `<p class="text-gray-400 text-sm">${langDictionary[currentLang]['catalog-empty']}</p>`;
+        if (promosGrid) promosGrid.innerHTML = promos.length ? promos.map(createCard).join('') : `<p class="text-gray-400 text-sm">${langDictionary[currentLang]['catalog-empty']}</p>`;
     }
+
+    renderNewsGrids();
 
     // 3. Страница СТАТЬИ (article.html)
     const articleTitle = document.getElementById('article-title');
+    let currentArticle = null;
+
     if (articleTitle) {
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
-        const article = newsItems.find(a => a.id === articleId);
+        currentArticle = newsItems.find(a => a.id === articleId);
 
-        if (article) {
-            document.title = `${article.title} — Debavit`;
-            articleTitle.textContent = article.title;
-            document.getElementById('article-badge').textContent = article.type;
+        if (currentArticle) {
+            renderArticleDetails();
             
-            if (article.main_image) {
-                document.getElementById('article-image').src = getImgPath(article.main_image);
+            if (currentArticle.main_image) {
+                document.getElementById('article-image').src = getImgPath(currentArticle.main_image);
                 document.getElementById('article-img-container').classList.remove('hidden');
             }
 
-            document.getElementById('article-content').innerHTML = (article.content || '').replace(/\n/g, '<br>');
-
-            if (article.btn_text && article.btn_link) {
-                const btn = document.getElementById('article-btn');
-                btn.textContent = article.btn_text;
-                btn.href = article.btn_link;
-                btn.classList.remove('hidden');
-            }
         } else {
             articleTitle.textContent = "Публикация не найдена";
             document.getElementById('article-content').textContent = "Пожалуйста, вернитесь в раздел новостей.";
             document.getElementById('article-badge').classList.add('hidden');
         }
     }
+
+    function renderArticleDetails() {
+        if (!currentArticle) return;
+        const displayTitle = getLangField(currentArticle, 'title');
+        const displayContent = getLangField(currentArticle, 'content');
+        const displayBtnText = getLangField(currentArticle, 'btn_text');
+
+        document.title = `${displayTitle} — Debavit`;
+        articleTitle.textContent = displayTitle;
+
+        let typeTranslation = currentArticle.type;
+        if (currentLang === 'kz') {
+            if (currentArticle.type === 'Новость') typeTranslation = 'Жаңалық';
+            if (currentArticle.type === 'Акция') typeTranslation = 'Науқан';
+        }
+        document.getElementById('article-badge').textContent = typeTranslation;
+
+        document.getElementById('article-content').innerHTML = (displayContent || '').replace(/\n/g, '<br>');
+
+        if (currentArticle.btn_text && currentArticle.btn_link) {
+            const btn = document.getElementById('article-btn');
+            btn.textContent = displayBtnText || currentArticle.btn_text; // Используем переведенный текст кнопки если есть
+            btn.href = currentArticle.btn_link;
+            btn.classList.remove('hidden');
+        }
+    }
+
+    // Ререндер новостей при смене языка
+    document.addEventListener('LanguageChanged', () => {
+        renderNewsGrids();
+        renderArticleDetails();
+    });
 });
 
 // --- МОБИЛЬНОЕ МЕНЮ ---
