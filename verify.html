@@ -29,48 +29,44 @@
 </head>
 <body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
 
-    <!-- НАВИГАЦИЯ -->
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl relative z-[60]">
         <a href="index.html" class="flex items-center">
             <img src="./assets/img/logo.svg" alt="Debavit" class="h-7 md:h-8">
         </a>
         
         <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-            <a href="index.html" class="hover:text-black transition">Каталог</a>
-            <a href="about.html" class="hover:text-black transition">О нас</a>
-            <a href="verify.html" class="hover:text-black transition">Проверка партии</a>
-            <a href="news.html" class="hover:text-black transition">Новости</a>
-            <a href="opt.html" class="hover:text-black transition">Оптовым клиентам</a>
-            <a href="contacts.html" class="hover:text-black transition">Контакты</a>
+            <a href="index.html" class="hover:text-black transition" data-i18n="menu-catalog">Каталог</a>
+            <a href="about.html" class="hover:text-black transition" data-i18n="menu-about">О нас</a>
+            <a href="verify.html" class="text-black border-b-2 border-brand-green pb-1 transition" data-i18n="menu-verify">Проверка партии</a>
+            <a href="news.html" class="hover:text-black transition" data-i18n="menu-news">Новости</a>
+            <a href="opt.html" class="hover:text-black transition" data-i18n="menu-opt">Оптовым клиентам</a>
+            <a href="contacts.html" class="hover:text-black transition" data-i18n="menu-contacts">Контакты</a>
         </div>
         
         <div class="flex items-center space-x-4 md:space-x-6">
-            <!-- Переключатель языка -->
             <div class="hidden md:flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-            <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
-            <span class="text-gray-300">/</span>
-            <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
+                <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
+                <span class="text-gray-300">/</span>
+                <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
             </div>
             <a href="tel:+77002221780" class="text-sm font-semibold hidden lg:block">+7 700 222 17 80</a>
-            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
+            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm" data-i18n="btn-contact">Связаться</a>
             <button id="menu-open" class="md:hidden p-2 text-brand-dark focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
             </button>
         </div>
     </nav>
 
-    <!-- МОБИЛЬНОЕ МЕНЮ -->
     <div id="mobile-menu" class="fixed inset-0 z-[100] hidden bg-white flex-col">
         <div class="flex justify-between items-center px-4 py-4 border-b border-gray-100">
             <a href="index.html">
                 <img src="./assets/img/logo.svg" alt="Debavit" class="h-7">
             </a>
             <div class="flex items-center space-x-4">
-                <!-- Переключатель языка для мобильных -->
                 <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-                <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
-                <span class="text-gray-300">/</span>
-                <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
+                    <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
+                    <span class="text-gray-300">/</span>
+                    <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
                 </div>
                 <button id="menu-close" class="p-2 text-brand-dark">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -80,23 +76,23 @@
 
         <div class="flex flex-col h-full px-6 pt-12 pb-16 justify-between overflow-y-auto">
             <div class="flex flex-col space-y-6">
-                <a href="index.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Каталог</a>
-                <a href="about.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">О нас</a>
-                <a href="verify.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Проверка партии</a>
-                <a href="news.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Новости</a>
-                <a href="opt.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Оптовым клиентам</a>
-                <a href="contacts.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition">Контакты</a>
+                <a href="index.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-catalog">Каталог</a>
+                <a href="about.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-about">О нас</a>
+                <a href="verify.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-green transition" data-i18n="menu-verify">Проверка партии</a>
+                <a href="news.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-news">Новости</a>
+                <a href="opt.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-opt">Оптовым клиентам</a>
+                <a href="contacts.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-contacts">Контакты</a>
             </div>
             <div class="space-y-6 mt-10">
                 <div class="flex flex-col space-y-2">
-                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold">Связаться с нами</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold" data-i18n="menu-contacts">Контакты</p>
                     <a href="tel:+77002221780" class="text-2xl font-medium">+7 700 222 17 80</a>
                     <div class="flex space-x-6 pt-2">
                         <a href="https://instagram.com/debavit_official.kz" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">Instagram</a>
                         <a href="https://wa.me/77002221780" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">WhatsApp</a>
                     </div>
                 </div>
-                <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg">Заказать консультацию</a>
+                <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg" data-i18n="btn-consultation">Заказать консультацию</a>
             </div>
         </div>
     </div>
@@ -108,16 +104,16 @@
                 <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-green/10 text-brand-green mb-6">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                 </span>
-                <h1 class="font-heading text-4xl md:text-5xl font-bold uppercase text-brand-dark tracking-tighter mb-4">Проверка подлинности</h1>
-                <p class="text-gray-600 text-sm md:text-base font-light max-w-lg mx-auto">Введите номер партии (LOT), указанный на упаковке товара, чтобы убедиться в оригинальности продукта и узнать срок его годности.</p>
+                <h1 class="font-heading text-4xl md:text-5xl font-bold uppercase text-brand-dark tracking-tighter mb-4" data-i18n="verify-title">Проверка подлинности</h1>
+                <p class="text-gray-600 text-sm md:text-base font-light max-w-lg mx-auto" data-i18n="verify-desc">Введите номер партии (LOT), указанный на упаковке товара, чтобы убедиться в оригинальности продукта и узнать срок его годности.</p>
             </div>
 
             <div class="bg-white p-6 md:p-10 rounded-sm shadow-sm border border-gray-100 mb-8">
                 <form id="verify-form" class="flex flex-col md:flex-row gap-4">
                     <div class="relative flex-grow">
-                        <input type="text" id="lot-input" required placeholder="Например: MTB1125" class="w-full pl-4 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm font-medium uppercase placeholder:normal-case">
+                        <input type="text" id="lot-input" required data-i18n="verify-placeholder" placeholder="Например: MTB1125" class="w-full pl-4 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm font-medium uppercase placeholder:normal-case">
                     </div>
-                    <button type="submit" class="bg-brand-dark text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-brand-green transition-colors rounded-sm whitespace-nowrap">
+                    <button type="submit" class="bg-brand-dark text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-brand-green transition-colors rounded-sm whitespace-nowrap" data-i18n="btn-check">
                         Проверить
                     </button>
                 </form>
@@ -130,21 +126,21 @@
                         <div class="text-green-500 mt-1">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-green-800 text-lg mb-1">Оригинальная продукция</h3>
-                            <p class="text-green-700 text-sm mb-4">Партия успешно найдена в нашей базе данных.</p>
+                        <div class="w-full">
+                            <h3 class="font-bold text-green-800 text-lg mb-1" data-i18n="verify-success-title">Оригинальная продукция</h3>
+                            <p class="text-green-700 text-sm mb-4" data-i18n="verify-success-desc">Партия успешно найдена в нашей базе данных.</p>
                             
                             <div class="bg-white p-4 rounded-sm border border-green-100 space-y-3">
                                 <div class="flex justify-between border-b border-gray-50 pb-2">
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Товар</span>
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest" data-i18n="verify-product-lbl">Товар</span>
                                     <span id="res-product" class="text-sm font-medium text-brand-dark text-right">...</span>
                                 </div>
                                 <div class="flex justify-between border-b border-gray-50 pb-2">
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Номер партии (LOT)</span>
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest" data-i18n="verify-lot-lbl">Номер партии (LOT)</span>
                                     <span id="res-lot" class="text-sm font-medium text-brand-dark text-right">...</span>
                                 </div>
                                 <div class="flex justify-between">
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Годен до</span>
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest" data-i18n="verify-exp-lbl">Годен до</span>
                                     <span id="res-exp" class="text-sm font-bold text-brand-green text-right">...</span>
                                 </div>
                             </div>
@@ -158,8 +154,8 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                         </div>
                         <div>
-                            <h3 class="font-bold text-red-800 text-lg mb-1">Партия не найдена</h3>
-                            <p class="text-red-700 text-sm">Проверьте правильность введенного номера. Если вы уверены, что номер введен верно, но он не найден, пожалуйста, свяжитесь с нашей поддержкой для уточнения.</p>
+                            <h3 class="font-bold text-red-800 text-lg mb-1" data-i18n="verify-error-title">Партия не найдена</h3>
+                            <p class="text-red-700 text-sm" data-i18n="verify-error-desc">Проверьте правильность введенного номера. Если вы уверены, что номер введен верно, но он не найден, пожалуйста, свяжитесь с нашей поддержкой для уточнения.</p>
                         </div>
                     </div>
                 </div>
@@ -171,7 +167,7 @@
 
     <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto bg-white">
         <div class="container mx-auto px-4">
-            <p>2026 Debavit.kz</p>
+            <p data-i18n="footer-text">2026 Debavit.kz</p>
         </div>
     </footer>
 
@@ -188,7 +184,7 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Очищаем и форматируем ввод (убираем пробелы, делаем заглавными)
+                // Очищаем и форматируем ввод
                 const query = input.value.trim().toUpperCase();
                 if (!query) return;
 
@@ -210,8 +206,13 @@
                     resultContainer.classList.remove('hidden');
 
                     if (foundBatch) {
-                        // Показываем успех
-                        document.getElementById('res-product').textContent = foundBatch.product;
+                        // Если у партии есть название на казахском, выводим его в зависимости от языка
+                        let displayName = foundBatch.product;
+                        if (currentLang === 'kz' && foundBatch.product_kz) {
+                            displayName = foundBatch.product_kz;
+                        }
+                        
+                        document.getElementById('res-product').textContent = displayName;
                         document.getElementById('res-lot').textContent = foundBatch.lot;
                         document.getElementById('res-exp').textContent = foundBatch.exp;
                         successResult.classList.remove('hidden');
@@ -221,7 +222,11 @@
                     }
                 } catch (error) {
                     console.error('Ошибка при проверке:', error);
-                    alert('Произошла ошибка при загрузке базы данных. Попробуйте позже.');
+                    // Обработка ошибки через словарь
+                    const errorMsg = currentLang === 'kz' 
+                        ? 'Дерекқорды жүктеу кезінде қате орын алды. Кейінірек қайталап көріңіз.' 
+                        : 'Произошла ошибка при загрузке базы данных. Попробуйте позже.';
+                    alert(errorMsg);
                 }
             });
         });
