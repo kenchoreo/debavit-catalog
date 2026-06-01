@@ -47,9 +47,9 @@
         <div class="flex items-center space-x-4 md:space-x-6">
             <!-- Переключатель языка -->
             <div class="hidden md:flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-                <a href="#" class="text-brand-dark border-b-2 border-brand-green pb-0.5">RU</a>
-                <span class="text-gray-300">/</span>
-                <a href="#" class="text-gray-400 hover:text-brand-dark transition">KZ</a>
+            <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
+            <span class="text-gray-300">/</span>
+            <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
             </div>
             <a href="tel:+77002221780" class="text-sm font-semibold hidden lg:block">+7 700 222 17 80</a>
             <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm">Связаться</a>
@@ -68,9 +68,9 @@
             <div class="flex items-center space-x-4">
                 <!-- Переключатель языка для мобильных -->
                 <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-                    <a href="#" class="text-brand-dark border-b-2 border-brand-green pb-0.5">RU</a>
-                    <span class="text-gray-300">/</span>
-                    <a href="#" class="text-gray-400 hover:text-brand-dark transition">KZ</a>
+                <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
+                <span class="text-gray-300">/</span>
+                <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
                 </div>
                 <button id="menu-close" class="p-2 text-brand-dark">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
