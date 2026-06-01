@@ -23,7 +23,7 @@ window.updateGalleryUI = function() {
     });
 };
 
-// Навигация
+// Навигация галереи
 window.nextImage = function(e) {
     if (e) e.stopPropagation();
     if (currentProductImages.length <= 1) return;
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const loader = document.getElementById('catalog-loader');
     const endMessage = document.getElementById('catalog-end-message');
 
-    // Шаг 1: Загрузка базы
+    // Шаг 1: Загрузка базы товаров
     try {
         const response = await fetch('./assets/data/products.json');
         if (response.ok) {
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Ошибка инициализации каталога:", error);
     }
 
-    // Шаг 2: Отрисовка
+    // Шаг 2: Отрисовка порции (Премиальные, полностью кликабельные карточки)
     function renderNextBatch() {
         if (displayedCount >= filteredProducts.length) {
             hideLoader(true);
@@ -122,17 +122,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         let htmlBuffer = '';
         nextBatch.forEach(product => {
             htmlBuffer += `
-                <div class="group cursor-pointer flex flex-col h-full bg-white">
-                    <div class="aspect-[4/5] bg-gray-50 mb-4 overflow-hidden relative rounded-sm border border-gray-100">
-                        <img src="${getImgPath(product.image)}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                <a href="product.html?id=${product.id}" class="group flex flex-col h-full bg-white border border-gray-100/80 rounded-xl p-3 md:p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 hover:border-brand-green/30 transition-all duration-300">
+                    <div class="aspect-[4/5] bg-gray-50 mb-4 overflow-hidden relative rounded-lg">
+                        <img src="${getImgPath(product.image)}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
-                    <h3 class="text-sm md:text-base font-medium text-brand-dark mb-4 leading-tight min-h-[40px] flex items-center group-hover:text-brand-green transition-colors">
+                    <h3 class="text-sm md:text-base font-semibold text-brand-dark mb-4 leading-snug flex-grow group-hover:text-brand-green transition-colors">
                         ${product.title}
                     </h3>
-                    <a href="product.html?id=${product.id}" class="inline-block w-full border border-black text-black px-6 py-2.5 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all rounded-sm text-center mt-auto">
+                    <span class="inline-block w-full bg-gray-50 text-brand-dark px-4 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest group-hover:bg-brand-dark group-hover:text-white transition-all rounded-lg text-center mt-auto">
                         Подробнее
-                    </a>
-                </div>`;
+                    </span>
+                </a>`;
         });
 
         grid.innerHTML += htmlBuffer;
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Шаг 3: Лоадер
+    // Шаг 3: Управление лоадером
     function hideLoader(isEnd) {
         if (isEnd) {
             if (loader) loader.classList.add('hidden');
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // --- СТРАНИЦА ОДНОГО ТОВАРА (product.html) ---
 document.addEventListener('DOMContentLoaded', async () => {
     const titleEl = document.getElementById('product-title');
-    if (!titleEl) return; // Выполняем только на странице товара
+    if (!titleEl) return; 
 
     try {
         const response = await fetch('./assets/data/products.json');
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 }
                 
-                // Секция рекомендаций
+                // Секция рекомендаций (Обновленные, полностью кликабельные карточки)
                 const recGrid = document.getElementById('recommendations-grid');
                 if (recGrid) {
                     const otherProducts = products.filter(p => p.id !== productId);
@@ -349,12 +349,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     recGrid.innerHTML = '';
                     selected.forEach(item => {
                         recGrid.innerHTML += `
-                            <a href="product.html?id=${item.id}" class="group block cursor-pointer flex flex-col h-full bg-white rounded-sm">
-                                <div class="aspect-[4/5] bg-gray-50 mb-3 overflow-hidden relative rounded-sm">
-                                    <img src="${getImgPath(item.image)}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                            <a href="product.html?id=${item.id}" class="group flex flex-col h-full bg-white border border-gray-100/80 rounded-xl p-3 md:p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 hover:border-brand-green/30 transition-all duration-300">
+                                <div class="aspect-[4/5] bg-gray-50 mb-3 overflow-hidden relative rounded-lg">
+                                    <img src="${getImgPath(item.image)}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                                 </div>
-                                <h3 class="font-heading text-lg md:text-xl uppercase font-bold text-brand-dark mb-1 group-hover:text-brand-green transition">${item.title}</h3>
-                                <span class="text-[10px] font-bold text-brand-green uppercase tracking-widest mt-auto">Смотреть</span>
+                                <h3 class="text-sm md:text-base font-semibold text-brand-dark mb-4 leading-snug flex-grow group-hover:text-brand-green transition-colors">
+                                    ${item.title}
+                                </h3>
+                                <span class="inline-block w-full bg-gray-50 text-brand-dark px-4 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest group-hover:bg-brand-dark group-hover:text-white transition-all rounded-lg text-center mt-auto">
+                                    Подробнее
+                                </span>
                             </a>`;
                     });
                 }
