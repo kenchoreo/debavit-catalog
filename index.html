@@ -2,29 +2,30 @@
 <html lang="ru">
 <head>
     <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '834184229545327');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=834184229545327&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '834184229545327');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=834184229545327&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debavit — Каталог нутрицевтиков</title>
+    <title>Debavit — Технические работы</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -44,154 +45,50 @@ src="https://www.facebook.com/tr?id=834184229545327&ev=PageView&noscript=1"
             }
         }
     </script>
-    <style>
-        /* Скрываем скроллбар */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
 </head>
-<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+<body class="font-sans text-gray-900 antialiased bg-gray-50 flex flex-col min-h-screen items-center justify-center p-4 md:p-8">
 
-   <!-- НАВИГАЦИЯ -->
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl relative z-[60]">
-        <a href="index.html" class="flex items-center">
-            <img src="./assets/img/logo.svg" alt="Debavit" class="h-7 md:h-8">
-        </a>
+    <main class="max-w-lg w-full bg-white p-10 md:p-14 shadow-sm rounded-sm text-center border border-gray-100">
         
-        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-            <a href="index.html" class="text-black border-b-2 border-brand-green pb-1 transition" data-i18n="menu-catalog">Каталог</a>
-            <a href="about.html" class="hover:text-black transition" data-i18n="menu-about">О нас</a>
-            <a href="verify.html" class="hover:text-black transition" data-i18n="menu-verify">Проверка партии</a>
-            <a href="news.html" class="hover:text-black transition" data-i18n="menu-news">Новости</a>
-            <a href="opt.html" class="hover:text-black transition" data-i18n="menu-opt">Оптовым клиентам</a>
-            <a href="contacts.html" class="hover:text-black transition" data-i18n="menu-contacts">Контакты</a>
-        </div>
-        
-        <div class="flex items-center space-x-4 md:space-x-6">
-            <!-- Переключатель языка -->
-            <div class="hidden md:flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-                <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
-                <span class="text-gray-300">/</span>
-                <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
-            </div>
-            <a href="tel:+77002221780" class="text-sm font-semibold hidden lg:block">+7 700 222 17 80</a>
-            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm" data-i18n="btn-contact">Связаться</a>
-            <button id="menu-open" class="md:hidden p-2 text-brand-dark focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- МОБИЛЬНОЕ МЕНЮ -->
-    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden bg-white flex-col">
-        <div class="flex justify-between items-center px-4 py-4 border-b border-gray-100">
-            <a href="index.html">
-                <img src="./assets/img/logo.svg" alt="Debavit" class="h-7">
-            </a>
-            <div class="flex items-center space-x-4">
-                <!-- Переключатель языка для мобильных -->
-                <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
-                    <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
-                    <span class="text-gray-300">/</span>
-                    <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
-                </div>
-                <button id="menu-close" class="p-2 text-brand-dark">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
+        <!-- Логотип -->
+        <div class="flex justify-center mb-10">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-8 md:h-10" onerror="this.outerHTML='<h1 class=\'font-heading text-4xl font-bold uppercase text-brand-green\'>DEBAVIT</h1>'">
         </div>
 
-        <div class="flex flex-col h-full px-6 pt-12 pb-16 justify-between overflow-y-auto">
-            <div class="flex flex-col space-y-6">
-                <a href="index.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-green transition" data-i18n="menu-catalog">Каталог</a>
-                <a href="about.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-about">О нас</a>
-                <a href="verify.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-verify">Проверка партии</a>
-                <a href="news.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-news">Новости</a>
-                <a href="opt.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-opt">Оптовым клиентам</a>
-                <a href="contacts.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-contacts">Контакты</a>
-            </div>
-            <div class="space-y-6 mt-10">
-                <div class="flex flex-col space-y-2">
-                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold" data-i18n="menu-contacts">Контакты</p>
-                    <a href="tel:+77002221780" class="text-2xl font-medium">+7 700 222 17 80</a>
-                    <div class="flex space-x-6 pt-2">
-                        <a href="https://instagram.com/debavit_official.kz" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">Instagram</a>
-                        <a href="https://wa.me/77002221780" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">WhatsApp</a>
-                    </div>
-                </div>
-                <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg" data-i18n="btn-consultation">Заказать консультацию</a>
-            </div>
+        <!-- Сообщение -->
+        <div class="space-y-4 mb-10">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold uppercase text-brand-dark leading-none tracking-tighter">
+                Сайт на реконструкции
+            </h2>
+            <p class="text-gray-500 font-light text-base md:text-lg leading-relaxed">
+                Мы проводим плановые технические работы, чтобы сделать наш сайт еще удобнее. Скоро мы вернемся!
+            </p>
         </div>
-    </div>
-    
-    <!-- КАРУСЕЛЬ НОВОСТЕЙ И АКЦИЙ -->
-    <section id="promo-carousel-section" class="hidden relative w-full bg-gray-50 group">
-        <div id="promo-carousel" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth w-full">
-            <!-- JS подставит баннеры сюда -->
-        </div>
-        
-        <button id="prev-slide" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-md focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        
-        <button id="next-slide" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-md focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-    </section>
 
-    <!-- КАТАЛОГ ТОВАРОВ -->
-    <section class="py-16 md:py-24 bg-white flex-grow" id="catalog-section">
-        <div class="container mx-auto max-w-7xl px-4">
+        <!-- Контакты для связи на время работ -->
+        <div class="pt-8 border-t border-gray-100">
+            <p class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-5">Связаться с нами:</p>
             
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-gray-100 pb-8">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase text-brand-dark leading-none tracking-tighter" data-i18n="catalog-title">
-                    Каталог товаров
-                </h2>
+            <div class="flex flex-col items-center space-y-4">
+                <a href="tel:+77002221780" class="text-2xl font-medium text-brand-dark hover:text-brand-green transition">+7 700 222 17 80</a>
                 
-                <div class="relative w-full md:max-w-md">
-                    <input type="text" id="catalog-search" data-i18n="search-placeholder" placeholder="Поиск нутрицевтика..." class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm font-light">
-                    <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
+                <div class="flex space-x-6">
+                    <a href="https://wa.me/77002221780" target="_blank" class="flex items-center text-brand-dark font-medium hover:text-brand-green transition">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://instagram.com/debavit_official.kz" target="_blank" class="flex items-center text-brand-dark font-medium hover:text-brand-green transition">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        Instagram
+                    </a>
                 </div>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8" id="main-catalog-grid">
-                <!-- Товары рендерятся через JS -->
-            </div>
-
-            <div id="catalog-sentinel" class="w-full flex justify-center items-center py-12 mt-8 min-h-[64px]">
-                <div id="catalog-loader" class="hidden w-6 h-6 border-2 border-brand-green border-t-transparent rounded-full animate-spin"></div>
-                <p id="catalog-end-message" class="hidden text-sm text-gray-400 font-light tracking-wide" data-i18n="catalog-end">Вы просмотрели все доступные товары</p>
-            </div>
-
         </div>
-    </section>
+    </main>
 
-    <!-- INSTAGRAM БЛОК -->
-    <section class="py-16 bg-white overflow-hidden border-t border-gray-100">
-        <div class="text-center mb-10">
-            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2" data-i18n="insta-title">Подпишитесь на наш инстаграм</h2>
-            <a href="https://instagram.com/debavit_official.kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@debavit_official.kz</a>
-        </div>
-        <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2 hide-scrollbar">
-            <img src="./assets/img/insta-1.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-2.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-3.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-4.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-5.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-6.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-7.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-            <img src="./assets/img/insta-8.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
-        </div>
-    </section>
-
-    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
-        <div class="container mx-auto px-4">
-            <p data-i18n="footer-text">2026 Debavit.kz</p>
-        </div>
+    <footer class="mt-8 text-sm text-gray-400 font-light">
+        <p>&copy; 2026 Debavit.kz</p>
     </footer>
 
-    <script src="./assets/js/app.js"></script>
 </body>
 </html>
