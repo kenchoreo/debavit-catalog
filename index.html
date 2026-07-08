@@ -1,120 +1,197 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Не удается получить доступ к сайту</title>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '834184229545327');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=834184229545327&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debavit — Каталог нутрицевтиков</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#5d7159', 
+                        'brand-brown': '#966d33', 
+                        'brand-dark': '#0d0d0d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            background-color: #fff;
-            color: #202124;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            font-size: 75%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            height: 100vh;
-            box-sizing: border-box;
-        }
-        .interstitial-wrapper {
-            box-sizing: border-box;
-            max-width: 600px;
-            width: 100%;
-            padding: 0 24px;
-            margin-top: 10vh;
-        }
-        .icon {
-            margin-bottom: 25px;
-        }
-        h1 {
-            font-size: 1.6em;
-            font-weight: normal;
-            margin: 0 0 15px;
-            line-height: 1.25;
-        }
-        p {
-            font-size: 1.05em;
-            line-height: 1.5;
-            margin: 0 0 15px;
-            color: #5f6368;
-        }
-        ul {
-            margin: 0 0 15px;
-            padding-left: 40px;
-            color: #5f6368;
-            font-size: 1.05em;
-            line-height: 1.5;
-        }
-        li {
-            margin-bottom: 5px;
-        }
-        .error-code {
-            color: #70757a;
-            font-size: 0.85em;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-        .nav-wrapper {
-            margin-top: 35px;
-        }
-        button {
-            background: #1a73e8;
-            border: 0;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #fff;
-            cursor: pointer;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            font-size: 0.875em;
-            margin: 0;
-            padding: 8px 16px;
-            transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        button:hover {
-            background: #1b66c9;
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-        }
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #202124;
-                color: #e8eaed;
-            }
-            p, ul, .error-code {
-                color: #9aa0a6;
-            }
-            button {
-                background: #8ab4f8;
-                color: #202124;
-            }
-            button:hover {
-                background: #93baf9;
-            }
-            svg {
-                fill: #9aa0a6;
-            }
-        }
+        /* Скрываем скроллбар */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body>
-    <div class="interstitial-wrapper">
-        <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#5f6368">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-            </svg>
-        </div>
-        <h1>Не удается получить доступ к сайту</h1>
-        <p>Сайт <strong>debavit.kz</strong> неожиданно разорвал соединение.</p>
-        <p>Попробуйте сделать следующее:</p>
-        <ul>
-            <li>Проверьте подключение к интернету.</li>
-            <li>Проверьте настройки прокси-сервера и брандмауэра.</li>
-        </ul>
-        <p class="error-code">ERR_CONNECTION_CLOSED</p>
+<body class="font-sans text-gray-900 antialiased bg-white flex flex-col min-h-screen">
+
+   <!-- НАВИГАЦИЯ -->
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl relative z-[60]">
+        <a href="index.html" class="flex items-center">
+            <img src="./assets/img/logo.svg" alt="Debavit" class="h-7 md:h-8">
+        </a>
         
-        <div class="nav-wrapper">
-            <button onclick="window.location.reload();">Перезагрузить</button>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="text-black border-b-2 border-brand-green pb-1 transition" data-i18n="menu-catalog">Каталог</a>
+            <a href="about.html" class="hover:text-black transition" data-i18n="menu-about">О нас</a>
+            <a href="verify.html" class="hover:text-black transition" data-i18n="menu-verify">Проверка партии</a>
+            <a href="news.html" class="hover:text-black transition" data-i18n="menu-news">Новости</a>
+            <a href="opt.html" class="hover:text-black transition" data-i18n="menu-opt">Оптовым клиентам</a>
+            <a href="contacts.html" class="hover:text-black transition" data-i18n="menu-contacts">Контакты</a>
+        </div>
+        
+        <div class="flex items-center space-x-4 md:space-x-6">
+            <!-- Переключатель языка -->
+            <div class="hidden md:flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
+                <button onclick="setLanguage('ru')" id="lang-ru" class="transition">RU</button>
+                <span class="text-gray-300">/</span>
+                <button onclick="setLanguage('kz')" id="lang-kz" class="transition">KZ</button>
+            </div>
+            <a href="tel:+77002221780" class="text-sm font-semibold hidden lg:block">+7 700 222 17 80</a>
+            <a href="https://wa.me/77002221780" class="hidden md:block bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition rounded-sm" data-i18n="btn-contact">Связаться</a>
+            <button id="menu-open" class="md:hidden p-2 text-brand-dark focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- МОБИЛЬНОЕ МЕНЮ -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden bg-white flex-col">
+        <div class="flex justify-between items-center px-4 py-4 border-b border-gray-100">
+            <a href="index.html">
+                <img src="./assets/img/logo.svg" alt="Debavit" class="h-7">
+            </a>
+            <div class="flex items-center space-x-4">
+                <!-- Переключатель языка для мобильных -->
+                <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest mt-1">
+                    <button onclick="setLanguage('ru')" id="lang-ru-mob" class="transition">RU</button>
+                    <span class="text-gray-300">/</span>
+                    <button onclick="setLanguage('kz')" id="lang-kz-mob" class="transition">KZ</button>
+                </div>
+                <button id="menu-close" class="p-2 text-brand-dark">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="flex flex-col h-full px-6 pt-12 pb-16 justify-between overflow-y-auto">
+            <div class="flex flex-col space-y-6">
+                <a href="index.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-green transition" data-i18n="menu-catalog">Каталог</a>
+                <a href="about.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-about">О нас</a>
+                <a href="verify.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-verify">Проверка партии</a>
+                <a href="news.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-news">Новости</a>
+                <a href="opt.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-opt">Оптовым клиентам</a>
+                <a href="contacts.html" class="font-heading text-3xl md:text-4xl font-bold uppercase tracking-tighter text-brand-dark hover:text-brand-green transition" data-i18n="menu-contacts">Контакты</a>
+            </div>
+            <div class="space-y-6 mt-10">
+                <div class="flex flex-col space-y-2">
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold" data-i18n="menu-contacts">Контакты</p>
+                    <a href="tel:+77002221780" class="text-2xl font-medium">+7 700 222 17 80</a>
+                    <div class="flex space-x-6 pt-2">
+                        <a href="https://instagram.com/debavit_official.kz" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">Instagram</a>
+                        <a href="https://wa.me/77002221780" class="text-brand-dark font-medium hover:text-brand-green transition border-b border-transparent hover:border-brand-green">WhatsApp</a>
+                    </div>
+                </div>
+                <a href="https://wa.me/77002221780" class="block w-full bg-[#5d7159] text-white py-5 text-center font-heading text-xl font-bold uppercase tracking-widest rounded-sm shadow-lg" data-i18n="btn-consultation">Заказать консультацию</a>
+            </div>
         </div>
     </div>
+    
+    <!-- КАРУСЕЛЬ НОВОСТЕЙ И АКЦИЙ -->
+    <section id="promo-carousel-section" class="hidden relative w-full bg-gray-50 group">
+        <div id="promo-carousel" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth w-full">
+            <!-- JS подставит баннеры сюда -->
+        </div>
+        
+        <button id="prev-slide" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-md focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        
+        <button id="next-slide" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-md focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </section>
+
+    <!-- КАТАЛОГ ТОВАРОВ -->
+    <section class="py-16 md:py-24 bg-white flex-grow" id="catalog-section">
+        <div class="container mx-auto max-w-7xl px-4">
+            
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-gray-100 pb-8">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase text-brand-dark leading-none tracking-tighter" data-i18n="catalog-title">
+                    Каталог товаров
+                </h2>
+                
+                <div class="relative w-full md:max-w-md">
+                    <input type="text" id="catalog-search" data-i18n="search-placeholder" placeholder="Поиск нутрицевтика..." class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-sm focus:bg-white focus:ring-1 focus:ring-brand-green focus:border-brand-green outline-none transition text-sm font-light">
+                    <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8" id="main-catalog-grid">
+                <!-- Товары рендерятся через JS -->
+            </div>
+
+            <div id="catalog-sentinel" class="w-full flex justify-center items-center py-12 mt-8 min-h-[64px]">
+                <div id="catalog-loader" class="hidden w-6 h-6 border-2 border-brand-green border-t-transparent rounded-full animate-spin"></div>
+                <p id="catalog-end-message" class="hidden text-sm text-gray-400 font-light tracking-wide" data-i18n="catalog-end">Вы просмотрели все доступные товары</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INSTAGRAM БЛОК -->
+    <section class="py-16 bg-white overflow-hidden border-t border-gray-100">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl md:text-3xl font-bold uppercase text-brand-dark mb-2" data-i18n="insta-title">Подпишитесь на наш инстаграм</h2>
+            <a href="https://instagram.com/debavit_official.kz" target="_blank" class="text-gray-500 font-medium hover:text-brand-dark transition">@debavit_official.kz</a>
+        </div>
+        <div class="flex flex-nowrap space-x-2 w-full overflow-x-auto pb-4 justify-center px-2 hide-scrollbar">
+            <img src="./assets/img/insta-1.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-2.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-3.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-4.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-5.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-6.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-7.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+            <img src="./assets/img/insta-8.jpg" class="w-24 h-24 md:w-32 md:h-32 object-cover">
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-400 mt-auto">
+        <div class="container mx-auto px-4">
+            <p data-i18n="footer-text">2026 Debavit.kz</p>
+        </div>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>
